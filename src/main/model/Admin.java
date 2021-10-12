@@ -1,4 +1,4 @@
-package model.Admin;
+package model;
 
 import java.util.Scanner;
 
@@ -25,6 +25,7 @@ public class Admin {
             System.out.println("Welcome, Administrator.");
             System.out.println("\n");
             a.showAdminOptions();
+
         } else {
             System.out.println("Your username or password is incorrect. Please try again.");
         }
@@ -36,9 +37,7 @@ public class Admin {
         System.out.println("To view the list of all currently employed doctors, press 2.");
         System.out.println("To view the list of all currently checked-in patients, press 3.");
         System.out.println("To add/view the medical history of a patient, press 4.");
-        System.out.println("To make a lab report, press 5.");
-        System.out.println("To diagnose a patient, press 6.");
-        System.out.println("To view the wait list for organ donations, press 7.");
+        System.out.println("To exit, press 5.");
 
         Scanner next = new Scanner(System.in);
         String choice = next.nextLine();
@@ -48,7 +47,33 @@ public class Admin {
     // EFFECTS: accesses the corresponding feature based on the choice of the user
 
     public void getAdminChoice(String choice) {
-        System.out.println(choice);
+
+        switch (choice) {
+
+            case "1":
+                Inquiry.showAllInquiries();
+                break;
+
+            case "2":
+                Doctor.showAllDoctors();
+                break;
+
+            case "3":
+                CheckIn.showCheckInOptions();
+                break;
+
+            case "4":
+                System.out.println("This feature hasn't been implemented yet.");
+                break;
+
+            case "5":
+                break;
+
+            default:
+                System.out.println("Sorry, that wasn't a valid choice. Please try again.");
+                System.out.println("\n");
+                showAdminOptions();
+        }
     }
 
 }

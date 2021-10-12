@@ -1,7 +1,7 @@
 package ui;
 
-import model.Admin.Admin;
-import model.Patient.Patient;
+import model.Admin;
+import model.Patient;
 
 import java.util.Scanner;
 
@@ -34,7 +34,7 @@ public class Main {
 
         switch (choice) {
             case "1":
-                Patient p = new Patient();
+                Patient p = new Patient("", 0);
 
                 System.out.println("Please enter your name.");
                 String loginName = next.nextLine();

@@ -28,13 +28,7 @@ and pursue my interests further.
 
 ### Admin User Stories
 - As an Admin, I wish to be able to register my login credentials on the System. 
-- As an Admin, I wish to be able to view all inquiries made to the Help Desk 
-- As an Admin, I wish to be able to answer an inquiry made to the Help Desk
+- As an Admin, I wish to be able to view all inquiries made to the Help Desk and resolve them.
 - As an Admin, I wish to be able to generate a list of all doctors employed at the Hospital.
 - As an Admin, I wish to be able to see all patients currently checked in at the hospital.
 - As an Admin, I wish to be able to add medical history details for a selected Patient.
-- As an Admin, I wish to be able to access the medical history for a selected Patient.
-- As an Admin, I wish to be able to print basic medical/lab reports.
-- As an Admin, I wish to be able to view and manage the wait list system for organ donors.
-- As an Admin, I wish to be able to give a prescription for a given Patient. 
-- As an Admin, I wish to be able to give a diagnosis for a given Patient. 
