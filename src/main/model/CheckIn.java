@@ -44,6 +44,8 @@ public class CheckIn {
         getChoice();
     }
 
+    // TODO: after shortening this, run the whole program through checkstyle
+    // TODO: shorten this
     public static void getChoice() {
         Admin a = new Admin();
 
