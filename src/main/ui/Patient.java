@@ -1,4 +1,8 @@
-package model;
+package ui;
+
+import model.BookAppointment;
+import model.FrequentlyAskedQuestions;
+import model.Inquiry;
 
 import java.util.Scanner;
 

@@ -1,5 +1,8 @@
 package model;
 
+import ui.Admin;
+import ui.Patient;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -62,15 +65,15 @@ public class CheckIn {
         switch (choice) {
             case "1":
                 checkInPatient();
-                continueUsing();
+                continueUsingCheckIn();
                 break;
             case "2":
                 checkOutPatient();
-                continueUsing();
+                continueUsingCheckIn();
                 break;
             case "3":
                 showAllPatients();
-                continueUsing();
+                continueUsingCheckIn();
                 break;
             case "4":
                 a.showAdminOptions();
@@ -84,7 +87,7 @@ public class CheckIn {
     }
 
     // EFFECTS: prompts the user to continue using the program, or not
-    public static void continueUsing() {
+    public static void continueUsingCheckIn() {
         Admin a = new Admin();
 
         System.out.println("\n");
@@ -110,7 +113,7 @@ public class CheckIn {
             case "4":
                 System.out.println("Sorry, that wasn't a valid choice. Please try again.");
                 System.out.println("\n");
-                continueUsing();
+                continueUsingCheckIn();
         }
     }
 }

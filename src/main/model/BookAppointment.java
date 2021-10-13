@@ -1,5 +1,7 @@
 package model;
 
+import ui.Patient;
+
 import java.util.Scanner;
 
 public class BookAppointment extends Doctor {
@@ -12,7 +14,7 @@ public class BookAppointment extends Doctor {
     // EFFECTS: prompts the user to select a doctor and appointment time, and then returns a receipt
     public static void bookAppointment() {
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("Please re-enter your name.");
+        System.out.println("Please enter the name of the patient you wish to book.");
         String tempName = myScanner.nextLine();
 
         System.out.println("Which doctor would you like to book at appointment with?");
@@ -76,13 +78,13 @@ public class BookAppointment extends Doctor {
 
     // EFFECTS: prompts the user to continue using the program
     public static void continueUsingAppointment() {
-        Scanner myScanner = new Scanner(System.in);
-        String choice = myScanner.nextLine();
-
         System.out.println("\n");
         System.out.println("1: Book another appointment");
         System.out.println("2: Go back to the Patient homepage");
         System.out.println("3: Exit");
+
+        Scanner myScanner = new Scanner(System.in);
+        String choice = myScanner.nextLine();
 
         Patient p = new Patient("", 0);
 
@@ -97,7 +99,7 @@ public class BookAppointment extends Doctor {
                 break;
             default:
                 System.out.println("Sorry, that wasn't a valid choice.");
-                continueUsing();
+                continueUsingDoctor();
         }
     }
 }

@@ -1,5 +1,7 @@
 package model;
 
+import ui.Admin;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -57,11 +59,11 @@ public class Doctor {
             System.out.println("Dr. " + d.getDoctorName() + ", " + d.getDepartment());
         }
 
-        continueUsing();
+        continueUsingDoctor();
     }
 
     // EFFECTS: prompts the user to continue using the program
-    public static void continueUsing() {
+    public static void continueUsingDoctor() {
         System.out.println("\n");
 
         System.out.println("1: Return to the Admin homepage");
@@ -80,7 +82,7 @@ public class Doctor {
                 break;
             case "3":
                 System.out.println("Sorry, that wasn't a valid choice.");
-                continueUsing();
+                continueUsingDoctor();
         }
     }
 }

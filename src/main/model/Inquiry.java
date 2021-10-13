@@ -1,5 +1,8 @@
 package model;
 
+import ui.Admin;
+import ui.Patient;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -86,10 +89,12 @@ public class Inquiry {
         System.out.println("Additional Remarks: ");
         System.out.println(thisRemarks);
 
-        continueUsingPatient();
+        continueUsingInquiryPatient();
     }
 
-    // EFFECTS: prints all inquiries currently stored in inquiries
+    // There was originally a method to remove inquiries here, but I couldn't implement it in between instances of
+    // Patient and Admin
+    // EFFECTS: prints all inquiries currently stored in inquiries. (which has been initialized with dummy variables)
     public static void showAllInquiries() {
         addInquiry(i1);
         addInquiry(i2);
@@ -108,45 +113,12 @@ public class Inquiry {
             System.out.println(i.getRemarks());
             System.out.println("\n");
         }
-
-        removeInquiry();
+        continueUsingInquiryAdmin();
     }
 
-    // REQUIRES: inquiries is non-empty
-    // MODIFIES: inquiries
-    // EFFECTS: removes element from inquiries with given entry number
-    // Sadly, I haven't yet been able to figure out how to correctly display the indexing of number in between instances
-    // and after removal. :(
-    public static void removeInquiry() {
-        System.out.println("Do you wish to remove an Inquiry? (Y/N)");
-        Scanner next = new Scanner(System.in);
-        String choice = next.nextLine();
-
-        if (choice.equals("Y")) {
-            System.out.println("Which number would you like to remove?");
-            int numberToRemove = Integer.parseInt(next.nextLine());
-
-            int j = 0;
-            for (Inquiry i : inquiries) {
-                j += 1;
-                if (j == (numberToRemove)) {
-                    inquiries.remove(i);
-                }
-                System.out.println("Successful!");
-                break;
-            }
-            continueUsingAdmin();
-
-        } else if (choice.equals("N")) {
-            continueUsingAdmin();
-        } else {
-            System.out.println("Sorry, that was not a valid answer.");
-            removeInquiry();
-        }
-    }
 
     // EFFECTS: prompts the user to continue the program if they are accessing it from the admin-side
-    public static void continueUsingAdmin() {
+    public static void continueUsingInquiryAdmin() {
         System.out.println("\n");
         System.out.println("1: Return to the Admin page");
         System.out.println("2: Exit");
@@ -164,12 +136,12 @@ public class Inquiry {
                 break;
             default:
                 System.out.println("That was not a valid choice.");
-                continueUsingAdmin();
+                continueUsingInquiryAdmin();
         }
     }
 
     // EFFECTS: prompts the user to continue the program if they are accessing it from the patient-side
-    public static void continueUsingPatient() {
+    public static void continueUsingInquiryPatient() {
         System.out.println("\n");
 
         System.out.println("1: Submit another Inquiry");
@@ -192,7 +164,7 @@ public class Inquiry {
                 break;
             default:
                 System.out.println("That was not a valid choice.");
-                continueUsingPatient();
+                continueUsingInquiryPatient();
         }
     }
 

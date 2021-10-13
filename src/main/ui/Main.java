@@ -1,8 +1,5 @@
 package ui;
 
-import model.Admin;
-import model.Patient;
-
 import java.util.Scanner;
 
 public class Main {

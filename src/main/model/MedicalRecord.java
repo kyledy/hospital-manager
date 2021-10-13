@@ -1,5 +1,7 @@
 package model;
 
+import ui.Admin;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -104,7 +106,7 @@ public class MedicalRecord {
         MedicalRecord m = new MedicalRecord(thisName, thisAge, thisHeight, thisWeight, thisBloodType);
         System.out.println("Successful!");
         addMedicalRecord(m);
-        continueUsing();
+        continueUsingMedicalRecord();
     }
 
     // EFFECTS: prints all medical records to console
@@ -117,11 +119,11 @@ public class MedicalRecord {
             System.out.println("Blood Type: " + m.getBloodType());
             System.out.println("\n");
         }
-        continueUsing();
+        continueUsingMedicalRecord();
     }
 
     // EFFECTS: prompts the user if they want to continue / go back to any stage of the program
-    public static void continueUsing() {
+    public static void continueUsingMedicalRecord() {
         System.out.println("\n");
         System.out.println("1: Go back to the Medical record homepage");
         System.out.println("2: Go back to the Admin homepage");
@@ -143,7 +145,7 @@ public class MedicalRecord {
                 break;
             default:
                 System.out.println("Sorry, that wasn't a valid choice.");
-                continueUsing();
+                continueUsingMedicalRecord();
                 break;
         }
     }

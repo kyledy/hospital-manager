@@ -1,4 +1,9 @@
-package model;
+package ui;
+
+import model.CheckIn;
+import model.Doctor;
+import model.Inquiry;
+import model.MedicalRecord;
 
 import java.util.Scanner;
 

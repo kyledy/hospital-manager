@@ -1,5 +1,7 @@
 package model;
 
+import ui.Patient;
+
 import java.util.Scanner;
 
 public class FrequentlyAskedQuestions {
@@ -30,19 +32,19 @@ public class FrequentlyAskedQuestions {
             // Answer to FAQ question 1
             case "1":
                 System.out.println("Using this program, there will be a prompt that will allow you to select it.");
-                continueUsing();
+                continueUsingFAQ();
                 break;
 
             // Answer to FAQ question 2
             case "2":
                 System.out.println("Rest assured that your inquiry will be answered in 3-5 business days.");
-                continueUsing();
+                continueUsingFAQ();
                 break;
 
             // Answer to FAQ question 3
             case "3":
                 System.out.println("Visiting hours are from 8am-5pm on weekdays, and 10am-5pm on weekends.");
-                continueUsing();
+                continueUsingFAQ();
                 break;
 
             // A simple thank-you message if the user chooses to end the program
@@ -59,7 +61,7 @@ public class FrequentlyAskedQuestions {
     }
 
     // EFFECTS: returns the user to the Patient homepage, or exits
-    public static void continueUsing() {
+    public static void continueUsingFAQ() {
         Patient p = new Patient("", 0);
 
         System.out.println("\n");
@@ -85,7 +87,7 @@ public class FrequentlyAskedQuestions {
             case "4":
                 System.out.println("Sorry, that wasn't a valid choice. Please try again.");
                 System.out.println("\n");
-                continueUsing();
+                continueUsingFAQ();
         }
     }
 
