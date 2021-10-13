@@ -1,73 +1,71 @@
 package model;
 
-import com.sun.glass.ui.Clipboard;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CheckIn {
-    private static ArrayList<Patient> enrolledPatients = new ArrayList<Patient>();
+    private static ArrayList<Patient> enrolledPatients = new ArrayList<>();
 
-    public static void checkInPatient(Patient p) {
-        enrolledPatients.add(p);
+    // MODIFIES: enrolledPatients
+    // EFFECTS: adds a patient to the list of enrolledPatients
+    public static void checkInPatient() {
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Please enter the name of the patient you wish to check-in.");
+        String tempName = myScanner.nextLine();
+        System.out.println("Please enter the ID number of the patient you wish to check-in.");
+        int tempID = Integer.parseInt(myScanner.nextLine());
+        Patient checkInPatient = new Patient(tempName, tempID);
+        enrolledPatients.add(checkInPatient);
+        System.out.println("Successful!");
     }
 
-    // TODO: fix this
-    public static void checkOutPatient(String name) {
+    // MODIFIES: enrolledPatients
+    // EFFECTS: removes a Patient from the list of enrolledPatients
+    public static void checkOutPatient() {
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Please enter the name of the patient you wish to check out.");
+        String nameToRemove = myScanner.nextLine();
+
         for (Patient enrolledPatient : enrolledPatients) {
-            if (enrolledPatient.getPatientName().equals(name)) {
+            if (nameToRemove.equals(enrolledPatient.getPatientName())) {
                 enrolledPatients.remove(enrolledPatient);
             }
+            System.out.println("Successful!");
             break;
         }
     }
 
-
-    // REQUIRES: enrolledPatients is not empty
-    // EFFECTS: returns the Patient at i index in the list
-    public Patient getPatient(int i) {
-        return enrolledPatients.get(i);
-    }
-
+    // EFFECTS: prints all currently checked-in patients to the console, with their name and ID number
     public static void showAllPatients() {
         for (Patient enrolledPatient : enrolledPatients) {
             System.out.println(enrolledPatient.getPatientName() + " , " + enrolledPatient.getPatientID());
         }
     }
 
+    // EFFECTS: shows check-in options for Admin
     public static void showCheckInOptions() {
         System.out.println("1: Patient check-in");
         System.out.println("2: Patient check-out");
         System.out.println("3: Show all currently checked-in patients");
         System.out.println("4: Return to Admin Homepage");
         System.out.println("5: Exit");
-        getChoice();
-    }
-
-    // TODO: after shortening this, run the whole program through checkstyle
-    // TODO: shorten this
-    public static void getChoice() {
-        Admin a = new Admin();
 
         Scanner myScanner = new Scanner(System.in);
         String choice = myScanner.nextLine();
+        getChoice(choice);
+    }
+
+    // EFFECTS: takes Admin's choice and uses it to access the corresponding feature
+    public static void getChoice(String choice) {
+        Admin a = new Admin();
 
         switch (choice) {
             case "1":
-                System.out.println("Please enter the name of the patient you wish to check-in.");
-                String tempName = myScanner.nextLine();
-                System.out.println("Please enter the ID number of the patient you wish to check-in.");
-                int tempID = Integer.parseInt(myScanner.nextLine());
-                Patient p = new Patient(tempName, tempID);
-                checkInPatient(p);
-                System.out.println("Successful!");
+                checkInPatient();
                 continueUsing();
                 break;
             case "2":
-                System.out.println("Please enter the name of the patient you wish to check out.");
-                String removeName = myScanner.nextLine();
-                checkOutPatient(removeName);
-                System.out.println("Successful!");
+                checkOutPatient();
                 continueUsing();
                 break;
             case "3":
@@ -79,14 +77,13 @@ public class CheckIn {
                 break;
             case "5":
                 break;
-            case "6":
+            default:
                 System.out.println("Sorry, that wasn't a valid choice. Please try again.");
-                System.out.println("\n");
-                showCheckInOptions();
                 break;
         }
     }
 
+    // EFFECTS: prompts the user to continue using the program, or not
     public static void continueUsing() {
         Admin a = new Admin();
 

@@ -9,44 +9,48 @@ public class FrequentlyAskedQuestions {
         System.out.println("Welcome to the Frequently Asked Questions Page!");
         System.out.println("Here we have gathered a list of commonly asked questions by our patients.");
 
-        System.out.println("Please press the corresponding number to learn more about your question.");
-        System.out.println("1: How do I book an appointment?");
-        System.out.println("2: How do I submit an Inquiry?");
-        System.out.println("3: How long will it take for my inquiry to be answered?");
-        System.out.println("4: When are visiting hours?");
-        System.out.println("5: Exit");
-
-        Scanner myScanner = new Scanner(System.in);
-        String choice = myScanner.nextLine();
-        answerQuestion(choice);
+        System.out.println("Please input the corresponding number to learn more about your question.");
+        System.out.println("1: How do I book an appointment / submit an inquiry?");
+        System.out.println("2: How long will it take for my inquiry to be answered?");
+        System.out.println("3: When are visiting hours?");
+        System.out.println("4: Exit");
+        answerQuestion();
     }
 
     // EFFECTS: Answers the question based on the choice of the user, and prompts them to ask if they want to keep
     //          going, or return to the Patient homepage
-    public static void answerQuestion(String choice) {
+
+    // This section is coded slightly different to the other switch statements to suppress Checkstyle errors
+    public static void answerQuestion() {
+        Scanner next = new Scanner(System.in);
+        String choice = next.nextLine();
+
         switch (choice) {
 
+            // Answer to FAQ question 1
             case "1":
-            case "2":
                 System.out.println("Using this program, there will be a prompt that will allow you to select it.");
                 continueUsing();
                 break;
 
-            case "3":
-                System.out.println("Our apologies, we are currently experiencing a high volume of requests.");
+            // Answer to FAQ question 2
+            case "2":
                 System.out.println("Rest assured that your inquiry will be answered in 3-5 business days.");
                 continueUsing();
                 break;
 
-            case "4":
+            // Answer to FAQ question 3
+            case "3":
                 System.out.println("Visiting hours are from 8am-5pm on weekdays, and 10am-5pm on weekends.");
                 continueUsing();
                 break;
 
-            case "5":
+            // A simple thank-you message if the user chooses to end the program
+            case "4":
                 System.out.println("Thank you for using MyHospitalManager!");
-                continueUsing();
+                break;
 
+            // default statement which brings users back to the FAQ page if they have selected an invalid choice
             default:
                 System.out.println("That wasn't a valid choice. Please try again.");
                 showFAQ();

@@ -20,15 +20,14 @@ and pursue my interests further.
 - As a user, I want to be able to log in as either a Patient or Administrator. 
 
 ### Patient User Stories
-- As a Patient, I wish to be able to see my name displayed on the system.
 - As a Patient, I wish to be able to book a consultation with a Doctor of my choice.
 - As a Patient, I wish to be able to submit an inquiry to the help desk. 
 - As a Patient, I wish to be able to access a FAQ page for the hospital.
 
 
 ### Admin User Stories
-- As an Admin, I wish to be able to register my login credentials on the System. 
+- As an Admin, I wish to be able to login to the System using a set username and password. 
 - As an Admin, I wish to be able to view all inquiries made to the Help Desk and resolve them.
 - As an Admin, I wish to be able to generate a list of all doctors employed at the Hospital.
 - As an Admin, I wish to be able to see all patients currently checked in at the hospital.
-- As an Admin, I wish to be able to add medical history details for a selected Patient.
+- As an Admin, I wish to be able to add basic medical records for a patient.

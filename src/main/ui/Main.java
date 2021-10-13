@@ -9,11 +9,13 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Welcome to MyHospital! How may I assist you today?");
+        System.out.println("** FOR ADMIN USE ONLY: Username is admin, password is 1234 ** ");
         System.out.println("\n");
 
         System.out.println("If you are a Patient, press 1.");
         System.out.println("If you are an Administrator, press 2.");
         System.out.println("If you wish to exit, press 3.");
+        System.out.println("\n");
         getChoice();
     }
 

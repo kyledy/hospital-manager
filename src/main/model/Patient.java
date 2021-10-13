@@ -1,10 +1,6 @@
 package model;
 
-import model.FrequentlyAskedQuestions;
-
 import java.util.Scanner;
-
-import static jdk.jfr.internal.tool.Main.main;
 
 public class Patient {
     private String patientName;
@@ -55,22 +51,27 @@ public class Patient {
 
         switch (choice) {
 
+            // Accesses the appointment booking feature
             case "1":
-                System.out.println("This feature has not been finished yet.");
+                BookAppointment.bookAppointment();
                 break;
 
+            // Accesses the inquiry submission feature
             case "2":
                 Inquiry.submitInquiry();
                 break;
 
+            // Accesses the FAQ page
             case "3":
                 FrequentlyAskedQuestions.showFAQ();
                 break;
 
+            // Prints a simple thank-you message when user exits the program
             case "4":
                 System.out.println("Thank you for using MyHospitalManager!");
                 break;
 
+            // If any other input is selected, the user will be taken back to the option page
             default:
                 System.out.println("That wasn't a valid choice. Please try again.");
                 System.out.println("\n");

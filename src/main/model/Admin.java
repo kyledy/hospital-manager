@@ -9,7 +9,8 @@ public class Admin {
     public static final String password = "1234";
 
     // constructor method for Admin class
-    public Admin() {}
+    public Admin() {
+    }
 
     // EFFECTS: Prompts the user to sign in. If successful, shows a list of all available options for Admin.
     public void login() {
@@ -45,7 +46,6 @@ public class Admin {
     }
 
     // EFFECTS: accesses the corresponding feature based on the choice of the user
-
     public void getAdminChoice(String choice) {
 
         switch (choice) {
@@ -63,7 +63,7 @@ public class Admin {
                 break;
 
             case "4":
-                System.out.println("This feature hasn't been implemented yet.");
+                MedicalRecord.showMedicalRecordOptions();
                 break;
 
             case "5":
