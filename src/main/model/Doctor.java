@@ -55,6 +55,8 @@ public class Doctor {
         doctors.add(d8);
         doctors.add(d9);
 
+        System.out.println("\n");
+
         for (Doctor d : doctors) {
             System.out.println("Dr. " + d.getDoctorName() + ", " + d.getDepartment());
         }
