@@ -2,6 +2,7 @@ package ui;
 
 import model.Inquiry;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 // This class represents the UI portion of the Inquiry class. This class is special because it provides implementations
@@ -12,10 +13,14 @@ import java.util.Scanner;
 // I initialized some dummy variables into the showAllInquiries function to demonstrate it instead.
 public class UserInquiry extends Inquiry {
 
+    // A list of inquiries
+    protected static ArrayList<Inquiry> inquiries = new ArrayList<>();
+
+
     // Dummy inquiries for showAllInquiries, because Inquiry instances cannot be shared between Patient and Admin
-    static Inquiry i1 = new Inquiry("cannot book appointment","September 16, 2021","N/a");
-    static Inquiry i2 = new Inquiry("emergency appointment","November 19, 2021","Please hurry!");
-    static Inquiry i3 = new Inquiry("I have a crush on a doctor","January 4, 2021","I won't say!");
+    static Inquiry i1 = new Inquiry("cannot book appointment", "September 16, 2021", "N/a");
+    static Inquiry i2 = new Inquiry("emergency appointment", "November 19, 2021", "Please hurry!");
+    static Inquiry i3 = new Inquiry("I have a crush on a doctor", "January 4, 2021", "I won't say!");
 
     // constructor matching Inquiry superclass
     public UserInquiry(String subject, String date, String remarks) {
@@ -23,7 +28,7 @@ public class UserInquiry extends Inquiry {
     }
 
     // MODIFIES: i, inquiries
-    // EFFECTS: creates a new Inquiry i based on user input, adds it to a list of inquiries contained in the
+    // EFFECTS: creates a new Inquiry based on user input, adds it to a list of inquiries contained in the
     // Inquiry class, then prints a receipt of the inquiry to the console
     public static void submitInquiry() {
 
@@ -44,7 +49,7 @@ public class UserInquiry extends Inquiry {
         i.setSubject(thisSubject);
         i.setDate(thisDate);
         i.setRemarks(thisRemarks);
-        addInquiry(i);
+        addInquiry(inquiries, i);
 
         // prints a receipt of the newly created Inquiry to the console
         System.out.println("Successful! Here is your receipt: ");
@@ -64,9 +69,9 @@ public class UserInquiry extends Inquiry {
 
         // Initializing the dummy variables is the basis for the MODIFIES clause, otherwise the method would just have
         // EFFECTS
-        addInquiry(i1);
-        addInquiry(i2);
-        addInquiry(i3);
+        addInquiry(inquiries, i1);
+        addInquiry(inquiries, i2);
+        addInquiry(inquiries, i3);
 
         // Variable j starts indexing at 1, and keeps count of which entry was entered first
         int j = 0;

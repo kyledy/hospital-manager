@@ -12,9 +12,6 @@ public class Inquiry {
     String date;
     String remarks;
 
-    // A list of Inquiries
-    protected static ArrayList<Inquiry> inquiries = new ArrayList<>();
-
     // constructor for the Inquiry class
     public Inquiry(String subject, String date, String remarks) {
         this.subject = subject;
@@ -23,8 +20,8 @@ public class Inquiry {
     }
 
     // MODIFIES: inquiries
-    // EFFECTS: Adds an inquiry to the list of inquiries
-    public static void addInquiry(Inquiry i) {
+    // EFFECTS: Takes a list of inquiries as a parameter and places inquiry i in the list
+    public static void addInquiry(ArrayList<Inquiry> inquiries, Inquiry i) {
         inquiries.add(i);
     }
 
@@ -34,7 +31,7 @@ public class Inquiry {
     }
 
     public void setDate(String date) {
-        this.subject = date;
+        this.date = date;
     }
 
     public void setRemarks(String remarks) {

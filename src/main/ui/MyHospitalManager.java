@@ -2,9 +2,6 @@ package ui;
 
 import java.util.Scanner;
 
-import static model.Admin.password;
-import static model.Admin.username;
-
 // This class represents the main application interface of the program, which is run by Main.
 public class MyHospitalManager {
 
@@ -72,6 +69,9 @@ public class MyHospitalManager {
     // EFFECTS: generates a simple login system for the user using a system-specific username and password, then
     // prompts the user to a list of options for Administrator if successful
     public void greetAdmin() {
+
+        String username = "admin";
+        String password = "1234";
         Scanner next = new Scanner(System.in);
 
         System.out.println("Please enter your username.");

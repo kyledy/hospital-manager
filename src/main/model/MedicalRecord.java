@@ -29,6 +29,26 @@ public class MedicalRecord {
     }
 
     // setter and getter methods
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
+    }
+
     public String getName() {
         return this.name;
     }
