@@ -3,7 +3,6 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static model.Doctor.addDoctor;
 import static model.Inquiry.addInquiry;
 import static org.junit.jupiter.api.Assertions.*;
 
