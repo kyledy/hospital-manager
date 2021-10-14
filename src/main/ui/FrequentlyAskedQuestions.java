@@ -1,13 +1,13 @@
-package model;
-
-import ui.Patient;
+package ui;
 
 import java.util.Scanner;
 
+// This class represents the entirety of the Frequently Asked Questions Page that is found in the program.
 public class FrequentlyAskedQuestions {
 
     // EFFECTS: Prompts the user to select an FAQ question of their choice
     public static void showFAQ() {
+
         System.out.println("Welcome to the Frequently Asked Questions Page!");
         System.out.println("Here we have gathered a list of commonly asked questions by our patients.");
 
@@ -19,10 +19,7 @@ public class FrequentlyAskedQuestions {
         answerQuestion();
     }
 
-    // EFFECTS: Answers the question based on the choice of the user, and prompts them to ask if they want to keep
-    //          going, or return to the Patient homepage
-
-    // This section is coded slightly different to the other switch statements to suppress Checkstyle errors
+    // EFFECTS: Answers the corresponding question based on the choice of the user
     public static void answerQuestion() {
         Scanner next = new Scanner(System.in);
         String choice = next.nextLine();
@@ -62,7 +59,6 @@ public class FrequentlyAskedQuestions {
 
     // EFFECTS: returns the user to the Patient homepage, or exits
     public static void continueUsingFAQ() {
-        Patient p = new Patient("", 0);
 
         System.out.println("\n");
         System.out.println("1: Return to the FAQ Page");
@@ -79,15 +75,18 @@ public class FrequentlyAskedQuestions {
                 break;
 
             case "2":
-                p.showPatientOptions();
+                MyHospitalManager.showPatientOptions();
+                break;
 
             case "3":
+                System.out.println("Thank you for using MyHospitalManager!");
                 break;
 
             case "4":
                 System.out.println("Sorry, that wasn't a valid choice. Please try again.");
                 System.out.println("\n");
                 continueUsingFAQ();
+                break;
         }
     }
 
