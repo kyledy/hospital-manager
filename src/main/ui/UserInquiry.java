@@ -67,7 +67,11 @@ public class UserInquiry extends Inquiry {
     // EFFECTS: prints all inquiries currently stored in the list of inquiries to the console
     public static void showAllInquiries() {
 
-        // Initializing the dummy variables is the basis for the MODIFIES clause, otherwise the method would just have
+        // avoids duplication of code
+        inquiries = new ArrayList<>();
+
+        // Initializing dummy variables to show because Patient and Admin do not have a bi-directional relationship
+        // yet
         // EFFECTS
         addInquiry(inquiries, i1);
         addInquiry(inquiries, i2);
@@ -88,6 +92,7 @@ public class UserInquiry extends Inquiry {
         }
         continueUsingInquiryAdmin();
     }
+
 
     // EFFECTS: prompts the user to continue the program if they are accessing the submitInquiry function
     // This method is the Patient-side implementation of this class
