@@ -24,6 +24,9 @@ and pursue my interests further.
 - As a Patient, I wish to be able to submit an inquiry to the help desk. 
 - As a Patient, I wish to be able to access a FAQ page for the hospital.
 
+####Persistence
+- As a Patient, I wish to be able to save my appointment receipt to file.
+- As a Patient, I wish to be able to save inquiries I've made to file.
 
 ### Admin User Stories
 - As an Admin, I wish to be able to login to the System using a set username and password. 
@@ -31,3 +34,9 @@ and pursue my interests further.
 - As an Admin, I wish to be able to generate a list of all doctors employed at the Hospital.
 - As an Admin, I wish to be able to check patients in and out of the system.
 - As an Admin, I wish to be able to input medical records into the system.
+
+####Persistence
+- As an Admin, I wish to be able to save currently checked-in patients to file.
+- As an Admin, I wish to be able to save medical records I've made to file. 
+- As an Admin, when I log in, I wish to be able to be given the option to load currently enrolled patients and medical
+  records from file.
