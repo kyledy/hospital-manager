@@ -19,6 +19,7 @@ public class HospitalManager {
     private MedicalRecordList ml;
     private InquiryList il;
     private DoctorList dl;
+    private AppointmentList al;
 
     // run the application
     // EFFECTS: runs the hospital management application, if username and password match those given by the system
@@ -81,6 +82,9 @@ public class HospitalManager {
         ml = new MedicalRecordList();
         il = new InquiryList();
         dl = new DoctorList();
+        al = new AppointmentList();
+        il.initInquiries();
+        dl.initDoctors();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -95,8 +99,11 @@ public class HospitalManager {
         System.out.println("\t3 -> show all patients");
         System.out.println("\t4 -> make new medical record");
         System.out.println("\t5 -> show all medical records");
-        System.out.println("\t6 -> show all doctors");
-        System.out.println("\t7 -> show all inquiries");
+        System.out.println("\t6 -> book an appointment");
+        System.out.println("\t7 -> remove an appointment");
+        System.out.println("\t8 -> show all appointments");
+        System.out.println("\t9 -> show all doctors");
+        System.out.println("\t10 -> show all inquiries");
         System.out.println("\tq -> quit");
     }
 
@@ -115,8 +122,14 @@ public class HospitalManager {
         } else if (command.equals("5")) {
             showMedicalRecords();
         } else if (command.equals("6")) {
-            showDoctors();
+            bookAppointment();
         } else if (command.equals("7")) {
+            removeAppointment();
+        } else if (command.equals("8")) {
+            showAllAppointments();
+        } else if (command.equals("9")) {
+            showDoctors();
+        } else if (command.equals("10")) {
             showInquiries();
         } else {
             System.out.println("Selection not valid...");
@@ -124,7 +137,7 @@ public class HospitalManager {
     }
 
     // check in a patient
-    // MODIFIES: p, patients
+    // MODIFIES: this, patients
     // EFFECTS: creates a Patient p with user input, then adds it to list of patients
     private void checkInPatient() {
         Scanner myScanner = new Scanner(System.in);
@@ -170,7 +183,7 @@ public class HospitalManager {
     }
 
     // make new medical record
-    // MODIFIES: m, medicalRecords
+    // MODIFIES: this, medicalRecords
     // creates new medical record m from user input and adds it to list of medical records
     private void makeMedicalRecord() {
         Scanner myScanner = new Scanner(System.in);
@@ -210,11 +223,56 @@ public class HospitalManager {
         }
     }
 
+    // book an appointment
+    // MODIFIES: this, appointments
+    // EFFECTS: creates new appointment a from user input and adds it to list of appointments
+    private void bookAppointment() {
+        Scanner myScanner = new Scanner(System.in);
+
+        System.out.println("Please enter the name of the patient you wish to book.");
+        String tempName = myScanner.nextLine();
+
+        System.out.println("Please enter the time you wish to have your appointment. [XXX am/pm]");
+        String tempTime = myScanner.nextLine();
+
+        // constructs new Appointment from user input
+        Appointment a = new Appointment(tempName, tempTime);
+
+        al.getAppointmentList().add(a);
+        System.out.println("Successful!");
+    }
+
+    // show all appointments
+    // EFFECTS: prints all appointments to console
+    private void showAllAppointments() {
+        for (Appointment a : al.getAppointmentList()) {
+            System.out.println(a.getName());
+            System.out.println(a.getTime());
+        }
+    }
+
+    // remove an appointment
+    // REQUIRES: appointments must have no duplicate names
+    // MODIFIES: appointments
+    // EFFECTS: removes appointment with given name from appointment
+    private void removeAppointment() {
+        Scanner myScanner = new Scanner(System.in);
+
+        System.out.println("Please enter the name of the appointment you wish to remove.");
+        String toFind = myScanner.nextLine();
+
+        for (Appointment a : al.getAppointmentList()) {
+            if (a.getName().equals(toFind)) {
+                al.getAppointmentList().remove(a);
+                System.out.println("Successful!");
+                break;
+            }
+        }
+    }
+
     // show doctors
     // EFFECTS: prints all doctors to the console
     private void showDoctors() {
-        dl.initDoctors();
-
         for (Doctor d : dl.getDoctorList()) {
             System.out.println("Dr. " + d.getDoctorName() + ", " + d.getDepartment());
         }
@@ -223,8 +281,6 @@ public class HospitalManager {
     // show inquiries
     // EFFECTS: prints all inquiries to the console
     private void showInquiries() {
-        il.initInquiries();
-
         // Variable j starts indexing at 1, and keeps count of which entry was entered first
         int j = 0;
 
