@@ -1,35 +1,31 @@
 package model;
 
-// This class represents information on a Patient in the hospital.
-// This class is used in the implementation of the CheckIn class.
+// This class represents information on a patient checked in at the hospital.
 public class Patient {
 
-    // A patient consists of their name, and their ID number, with which their name must be unique (among all other
-    // Patients)
-    private String patientName;
-    private int patientID;
+    // A Patient has a name and ID number.
+    private String name;
+    private int id;
 
-    // constructor method for Patient class
-    public Patient(String patientName, int patientID) {
-        this.patientName = patientName;
-        this.patientID = patientID;
+    // constructor
+    // EFFECTS: constructs a patient with given name
+    //          default value of id is 0
+    public Patient(String name) {
+        this.name = name;
+        this.id = 0;
     }
 
     // setter and getter methods
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public void setPatientID(int patientID) {
-        this.patientID = patientID;
+    public void setId(int id) {
+        this.id = id;
     }
-
-    public String getPatientName() {
-        return this.patientName;
+    public String getName() {
+        return this.name;
     }
-
-    public int getPatientID() {
-        return this.patientID;
+    public int getId() {
+        return this.id;
     }
-
 }

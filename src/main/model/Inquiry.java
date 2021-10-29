@@ -1,53 +1,46 @@
 package model;
 
-import java.util.ArrayList;
-
-// This class represents an Inquiry, which can be filed by the Patient to the help desk or viewed by an Administrator.
-// This class contains the internal framework for the UserInquiry class. The UserInquiry class is the only class in this
-// suite that has implementations for both the patient-side and the admin-side.
+// This class represents information on an inquiry that can be filed to the hospital help desk.
 public class Inquiry {
 
     // An Inquiry consists of a subject, the date it was filed, and any other additional remarks.
-    String subject;
-    String date;
-    String remarks;
+    private String subject;
+    private String date;
+    private String remarks;
 
-    // constructor for the Inquiry class
+    // At this time, the inquiries shown through the program are just dummy variables.
+    public static final Inquiry I1 = new Inquiry("cannot book appointment", "September 16, 2021",
+            "N/a");
+    public static final Inquiry I2 = new Inquiry("emergency appointment", "November 19, 2021",
+            "Please hurry!");
+    public static final Inquiry I3 = new Inquiry("I have a crush on a doctor", "January 4, 2021",
+            "I won't say!");
+
+    // constructor
+    // EFFECTS: constructs an inquiry with given subject, date, and remarks
     public Inquiry(String subject, String date, String remarks) {
         this.subject = subject;
         this.date = date;
         this.remarks = remarks;
     }
 
-    // MODIFIES: inquiries
-    // EFFECTS: Takes a list of inquiries as a parameter and places inquiry i in the list
-    public static void addInquiry(ArrayList<Inquiry> inquiries, Inquiry i) {
-        inquiries.add(i);
-    }
-
     // setter and getter methods
     public void setSubject(String subject) {
         this.subject = subject;
     }
-
     public void setDate(String date) {
         this.date = date;
     }
-
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
-
     public String getSubject() {
         return this.subject;
     }
-
     public String getDate() {
         return this.date;
     }
-
     public String getRemarks() {
         return this.remarks;
     }
-
 }
