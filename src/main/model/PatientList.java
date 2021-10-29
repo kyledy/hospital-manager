@@ -19,9 +19,4 @@ public class PatientList {
         return this.patients;
     }
 
-    // get length of list of patients
-    // EFFECTS: returns the length of the list of patients
-    public int length() {
-        return patients.size();
-    }
 }

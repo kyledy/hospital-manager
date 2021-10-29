@@ -28,9 +28,4 @@ public class InquiryList {
         return this.inquiries;
     }
 
-    // get length of list of inquiries
-    // EFFECTS: returns length of list of inquiries
-    public int length() {
-        return inquiries.size();
-    }
 }

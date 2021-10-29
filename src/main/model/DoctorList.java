@@ -36,10 +36,4 @@ public class DoctorList {
         return this.doctors;
     }
 
-    // get length of list of doctors
-    // EFFECTS: returns length of list of doctors
-    public int length() {
-        return doctors.size();
-    }
-
 }

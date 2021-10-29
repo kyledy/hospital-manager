@@ -19,9 +19,4 @@ public class MedicalRecordList {
         return this.medicalRecords;
     }
 
-    // get length of list of medical records
-    // EFFECTS: returns length of list of medical records
-    public int length() {
-        return medicalRecords.size();
-    }
 }

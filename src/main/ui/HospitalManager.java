@@ -4,7 +4,7 @@ import model.*;
 
 import java.util.Scanner;
 
-// Hospial Manager application
+// Hospital Manager application
 // This code references the AccountNotRobust project given by the course.
 public class HospitalManager {
 
@@ -175,19 +175,19 @@ public class HospitalManager {
     private void makeMedicalRecord() {
         Scanner myScanner = new Scanner(System.in);
 
-        System.out.println("Please enter the patient's name");
+        System.out.println("Please enter the patient's name.");
         String tempName = myScanner.nextLine();
 
-        System.out.println("Please enter the patient's age");
+        System.out.println("Please enter the patient's age.");
         int tempAge = Integer.parseInt(myScanner.nextLine());
 
-        System.out.println("Please enter the patient's height");
+        System.out.println("Please enter the patient's height.");
         int tempHeight = Integer.parseInt(myScanner.nextLine());
 
-        System.out.println("Please enter the patient's weight");
+        System.out.println("Please enter the patient's weight.");
         int tempWeight = Integer.parseInt(myScanner.nextLine());
 
-        System.out.println("Please enter the patient's blood type");
+        System.out.println("Please enter the patient's blood type.");
         String tempBloodType = myScanner.nextLine();
 
         // constructs a new MedicalRecord object using values obtained from user input
