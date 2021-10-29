@@ -31,5 +31,4 @@ public class Patient {
     public int getId() {
         return this.id;
     }
-
 }

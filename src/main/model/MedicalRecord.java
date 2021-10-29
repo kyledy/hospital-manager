@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // This class represents information on a medical record that can be filed by hospital staff.
-public class MedicalRecord {
+public class MedicalRecord implements Writable {
 
     // contains information on the patient's name, age, height, weight, and bloodType
     private String name;
@@ -24,18 +27,23 @@ public class MedicalRecord {
     public void setName(String name) {
         this.name = name;
     }
+
     public void setAge(int age) {
         this.age = age;
     }
+
     public void setHeight(int height) {
         this.height = height;
     }
+
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
     public void setBloodType(String bloodType) {
         this.bloodType = bloodType;
     }
+
     public String getName() {
         return this.name;
     }
@@ -47,10 +55,23 @@ public class MedicalRecord {
     public int getHeight() {
         return this.height;
     }
+
     public int getWeight() {
         return this.weight;
     }
+
     public String getBloodType() {
         return this.bloodType;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("age", age);
+        json.put("height", height);
+        json.put("weight", weight);
+        json.put("blood type", bloodType);
+        return json;
     }
 }

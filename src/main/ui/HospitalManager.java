@@ -1,12 +1,19 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Hospital Manager application
-// This code references the AccountNotRobust project given by the course.
+// This code references the AccountNotRobust and JSONSerialization demo projects given by the course.
 public class HospitalManager {
+    private static final String JSON_STORE = "./data/medicalrecords.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // system-wide username and password
     private static final String ADMIN_USERNAME = "admin";
@@ -23,7 +30,10 @@ public class HospitalManager {
 
     // run the application
     // EFFECTS: runs the hospital management application, if username and password match those given by the system
-    public HospitalManager() {
+    public HospitalManager() throws FileNotFoundException {
+
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
 
         Scanner myScanner = new Scanner(System.in);
 
@@ -104,12 +114,17 @@ public class HospitalManager {
         System.out.println("\t8 -> show all appointments");
         System.out.println("\t9 -> show all doctors");
         System.out.println("\t10 -> show all inquiries");
+        // This saves all currently checked-in patients, medical records, and appointments to file
+        System.out.println("\t11 -> save medical records to file");
+        // This loads all previously checked-in patients, medical records, and appointments to file
+        System.out.println("\t12 -> load medical records from file");
         System.out.println("\tq -> quit");
     }
 
     // process options
     // MODIFIES: this
     // EFFECTS: processes user command
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private void processCommand(String command) {
         if (command.equals("1")) {
             checkInPatient();
@@ -131,6 +146,10 @@ public class HospitalManager {
             showDoctors();
         } else if (command.equals("10")) {
             showInquiries();
+        } else if (command.equals("11")) {
+            saveMedicalRecords();
+        } else if (command.equals("12")) {
+            loadMedicalRecords();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -293,6 +312,31 @@ public class HospitalManager {
             System.out.println("Additional Remarks: ");
             System.out.println(i.getRemarks());
             System.out.println("\n");
+        }
+    }
+
+    // EFFECTS: saves the current state of program to file
+    private void saveMedicalRecords() {
+        try {
+            jsonWriter.open();
+            jsonWriter.writeMedicalRecordList(ml);
+            jsonWriter.close();
+            System.out.println("Saved medical records to " + JSON_STORE);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads previous state of program from file
+    private void loadMedicalRecords() {
+        try {
+            ml = jsonReader.readMedicalRecordList();
+            System.out.println("Loaded medical records from " + JSON_STORE);
+
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 }

@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // This class represents a list of medical records.
-public class MedicalRecordList {
+public class MedicalRecordList implements Writable {
     private ArrayList<MedicalRecord> medicalRecords;
 
     // constructor
@@ -19,4 +23,27 @@ public class MedicalRecordList {
         return this.medicalRecords;
     }
 
+    // add medical record to list of medical records
+    // EFFECTS: adds medical record m to list of medical records
+    public void addMedicalRecord(MedicalRecord m) {
+        medicalRecords.add(m);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("medical records", medicalRecordsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns medical records in this medical record list as a JSON array
+    private JSONArray medicalRecordsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (MedicalRecord m : medicalRecords) {
+            jsonArray.put(m.toJson());
+        }
+
+        return jsonArray;
+    }
 }

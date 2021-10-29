@@ -18,4 +18,10 @@ public class AppointmentList {
     public List<Appointment> getAppointmentList() {
         return this.appointments;
     }
+
+    // add appointment to list of appointments
+    // EFFECTS: adds appointment a to list of appointments
+    public void addAppointment(Appointment a) {
+        appointments.add(a);
+    }
 }

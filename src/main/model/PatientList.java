@@ -19,4 +19,9 @@ public class PatientList {
         return this.patients;
     }
 
+    // add patient to list of patients
+    // EFFECTS: adds patient p to list of patients
+    public void addPatient(Patient p) {
+        patients.add(p);
+    }
 }

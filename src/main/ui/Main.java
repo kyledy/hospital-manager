@@ -1,8 +1,14 @@
 package ui;
 
+import java.io.FileNotFoundException;
+
 // The main class! This class calls the HospitalManager app.
 public class Main {
     public static void main(String[] args) {
-        new HospitalManager();
+        try {
+            new HospitalManager();
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to run application: file not found");
+        }
     }
 }
