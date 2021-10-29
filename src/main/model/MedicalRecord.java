@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 // This class represents information on a medical record that can be filed by hospital staff.
+// This class references code from the JSonSerializationDemo code given by the course.
 public class MedicalRecord implements Writable {
 
     // contains information on the patient's name, age, height, weight, and bloodType
@@ -64,6 +65,7 @@ public class MedicalRecord implements Writable {
         return this.bloodType;
     }
 
+    // converts medical record to JSon object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

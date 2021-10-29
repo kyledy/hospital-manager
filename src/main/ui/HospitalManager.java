@@ -32,6 +32,7 @@ public class HospitalManager {
     // EFFECTS: runs the hospital management application, if username and password match those given by the system
     public HospitalManager() throws FileNotFoundException {
 
+        // initializes JSON writer and JSON reader
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
@@ -121,34 +122,47 @@ public class HospitalManager {
         System.out.println("\tq -> quit");
     }
 
+    // Checkstyle was suppressed here because there was no better way of implementing all features of the program
     // process options
     // MODIFIES: this
     // EFFECTS: processes user command
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private void processCommand(String command) {
         if (command.equals("1")) {
+            // check in a patient
             checkInPatient();
         } else if (command.equals("2")) {
+            // check out a patient
             checkOutPatient();
         } else if (command.equals("3")) {
+            // show all patients
             showAllPatients();
         } else if (command.equals("4")) {
+            // make a new medical record
             makeMedicalRecord();
         } else if (command.equals("5")) {
+            // show all medical records
             showMedicalRecords();
         } else if (command.equals("6")) {
+            // book an appointment for a patient
             bookAppointment();
         } else if (command.equals("7")) {
+            // remove an appointment from the list of booked appointments
             removeAppointment();
         } else if (command.equals("8")) {
+            // show all booked appointments
             showAllAppointments();
         } else if (command.equals("9")) {
+            // show all doctors
             showDoctors();
         } else if (command.equals("10")) {
+            // show all inquiries
             showInquiries();
         } else if (command.equals("11")) {
+            // save medical records to file
             saveMedicalRecords();
         } else if (command.equals("12")) {
+            // load medical records from file
             loadMedicalRecords();
         } else {
             System.out.println("Selection not valid...");
@@ -167,9 +181,11 @@ public class HospitalManager {
         System.out.println("Please enter the ID number of the patient you wish to check in.");
         int tempId = Integer.parseInt(myScanner.nextLine());
 
+        // initializes the patient
         Patient p = new Patient(tempName);
         p.setId(tempId);
 
+        // adds patient to list of patients
         pl.getPatientList().add(p);
         System.out.println("Successful!");
     }
@@ -225,6 +241,7 @@ public class HospitalManager {
         // constructs a new MedicalRecord object using values obtained from user input
         MedicalRecord m = new MedicalRecord(tempName, tempAge, tempHeight, tempWeight, tempBloodType);
 
+        // adds medical record to list of medical records
         ml.getMedicalRecordList().add(m);
         System.out.println("Successful!");
     }
@@ -257,6 +274,7 @@ public class HospitalManager {
         // constructs new Appointment from user input
         Appointment a = new Appointment(tempName, tempTime);
 
+        // adds appointment to list of booked appointments
         al.getAppointmentList().add(a);
         System.out.println("Successful!");
     }

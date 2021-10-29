@@ -1,14 +1,14 @@
 package persistence;
 
-import model.AppointmentList;
 import model.MedicalRecordList;
-import model.PatientList;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
+// This class references code from the JSonSerialization demo project given by the course.
+// This class represents a writer that converts a medical record to a JSON file.
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;
@@ -27,7 +27,7 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of medical record list to file
+    // EFFECTS: writes JSON representation of list of medical records to file
     public void writeMedicalRecordList(MedicalRecordList ml) {
         JSONObject json = ml.toJson();
         saveToFile(json.toString(TAB));

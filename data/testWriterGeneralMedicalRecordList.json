@@ -1,0 +1,16 @@
+{"medical records": [
+    {
+        "blood type": "O",
+        "name": "kyle",
+        "weight": 10,
+        "age": 10,
+        "height": 10
+    },
+    {
+        "blood type": "A",
+        "name": "andie",
+        "weight": 11,
+        "age": 11,
+        "height": 11
+    }
+]}

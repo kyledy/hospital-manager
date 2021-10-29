@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // This class represents a list of medical records.
+// This class references code from the JSonSerializationDemo project.
 public class MedicalRecordList implements Writable {
     private ArrayList<MedicalRecord> medicalRecords;
 
@@ -29,6 +30,13 @@ public class MedicalRecordList implements Writable {
         medicalRecords.add(m);
     }
 
+    // get length of list
+    // EFFECTS: returns length of list of medical records
+    public int length() {
+        return medicalRecords.size();
+    }
+
+    // parses the list and converts each medical record to Json
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

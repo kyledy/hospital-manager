@@ -28,18 +28,23 @@ public class Inquiry {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
     public void setDate(String date) {
         this.date = date;
     }
+
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+
     public String getSubject() {
         return this.subject;
     }
+
     public String getDate() {
         return this.date;
     }
+
     public String getRemarks() {
         return this.remarks;
     }
