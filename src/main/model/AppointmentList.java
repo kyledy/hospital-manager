@@ -29,6 +29,12 @@ public class AppointmentList implements Writable {
         appointments.add(a);
     }
 
+    // get length of list
+    // EFFECTS: returns length of list of appointments
+    public int length() {
+        return appointments.size();
+    }
+
     // parses the list and converts each appointment to Json
     @Override
     public JSONObject toJson() {

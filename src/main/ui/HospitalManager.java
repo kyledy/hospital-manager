@@ -297,7 +297,7 @@ public class HospitalManager {
         System.out.println("Please enter the name of the patient you wish to book.");
         String tempName = myScanner.nextLine();
 
-        System.out.println("Please enter the time you wish to have your appointment. [000 am/pm]");
+        System.out.println("Please enter the time you wish to have your appointment. [000: am/pm]");
         String tempTime = myScanner.nextLine();
 
         // constructs new Appointment from user input

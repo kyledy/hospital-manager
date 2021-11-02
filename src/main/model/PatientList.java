@@ -29,6 +29,12 @@ public class PatientList implements Writable {
         patients.add(p);
     }
 
+    // get length of list
+    // EFFECTS: returns length of list of patients
+    public int length() {
+        return patients.size();
+    }
+
     // parses the list and converts each patient to Json
     @Override
     public JSONObject toJson() {
