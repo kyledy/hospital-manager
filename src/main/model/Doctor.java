@@ -7,7 +7,7 @@ public class Doctor {
     private String doctorName;
     private String department;
 
-    // The values for doctors at this hospital are final
+    // Values for doctors at this hospital are final
     public static final Doctor D1 = new Doctor("Cain Schmidt", "Cardiology");
     public static final Doctor D2 = new Doctor("Toni O'Brien", "Pediatrics");
     public static final Doctor D3 = new Doctor("Katie Short", "Oncology");
@@ -25,7 +25,7 @@ public class Doctor {
         this.department = department;
     }
 
-    // setter and getter methods
+    // Setter and Getter methods
     public void setDoctorName(String doctorName) {
         this.doctorName = doctorName;
     }
@@ -41,4 +41,5 @@ public class Doctor {
     public String getDepartment() {
         return this.department;
     }
+
 }

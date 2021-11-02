@@ -18,15 +18,21 @@ public class InquiryList {
     // initialize list of inquiries
     // EFFECTS: initializes list of inquiries with dummy variables
     public void initInquiries() {
-        inquiries.add(I1);
-        inquiries.add(I2);
-        inquiries.add(I3);
+        addInquiry(I1);
+        addInquiry(I2);
+        addInquiry(I3);
     }
 
     // get list of inquiries
     // EFFECTS: returns list of inquiries
     public List<Inquiry> getInquiryList() {
         return this.inquiries;
+    }
+
+    // add inquiry to list of inquiries
+    // EFFECTS: adds inquiry to list of inquiries
+    public void addInquiry(Inquiry i) {
+        inquiries.add(i);
     }
 
 }

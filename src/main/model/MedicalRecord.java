@@ -24,7 +24,7 @@ public class MedicalRecord implements Writable {
         this.bloodType = bloodType;
     }
 
-    // setter and getter methods
+    // Setter and Getter methods
     public void setName(String name) {
         this.name = name;
     }

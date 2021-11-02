@@ -1,6 +1,9 @@
 package persistence;
 
+import model.Appointment;
+import model.AppointmentList;
 import model.MedicalRecordList;
+import model.PatientList;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -14,6 +17,7 @@ public class JsonWriter {
     private PrintWriter writer;
     private String destination;
 
+    // MODIFIES: this
     // EFFECTS: constructs writer to write to destination file
     public JsonWriter(String destination) {
         this.destination = destination;
@@ -26,10 +30,21 @@ public class JsonWriter {
         writer = new PrintWriter(new File(destination));
     }
 
-    // MODIFIES: this
     // EFFECTS: writes JSON representation of list of medical records to file
     public void writeMedicalRecordList(MedicalRecordList ml) {
         JSONObject json = ml.toJson();
+        saveToFile(json.toString(TAB));
+    }
+
+    // EFFECTS: writes JSON representation of list of medical records to file
+    public void writePatientList(PatientList pl) {
+        JSONObject json = pl.toJson();
+        saveToFile(json.toString(TAB));
+    }
+
+    // EFFECTS: writes JSON representation of list of medical records to file
+    public void writeAppointmentList(AppointmentList al) {
+        JSONObject json = al.toJson();
         saveToFile(json.toString(TAB));
     }
 

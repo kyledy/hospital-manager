@@ -1,22 +1,24 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // This class represents information on an appointment that was booked by a Patient.
-public class Appointment {
+public class Appointment implements Writable {
     private String name;
     private String time;
 
-    // An appointment must be booked with a certain time
+    // An appointment must be booked with the name of a patient, and a certain time
     public Appointment(String name, String time) {
         this.name = name;
         this.time = time;
     }
 
-    // setter and getter methods
+    // Setter and Getter methods
     public void setName(String name) {
         this.name = name;
     }
 
-    // note that values of time are ideally in the form [XXX am/pm]
     public void setTime(String time) {
         this.time = time;
     }
@@ -27,5 +29,14 @@ public class Appointment {
 
     public String getTime() {
         return this.time;
+    }
+
+    // converts appointment to JSon object
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("time", time);
+        return json;
     }
 }

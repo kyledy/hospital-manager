@@ -24,7 +24,7 @@ public class Inquiry {
         this.remarks = remarks;
     }
 
-    // setter and getter methods
+    // Setter and Getter methods
     public void setSubject(String subject) {
         this.subject = subject;
     }

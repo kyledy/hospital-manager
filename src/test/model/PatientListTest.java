@@ -12,7 +12,7 @@ public class PatientListTest {
     @BeforeEach
     void runBefore() {
         pl = new PatientList();
-        p = new Patient("");
+        p = new Patient("", 0);
     }
 
     @Test

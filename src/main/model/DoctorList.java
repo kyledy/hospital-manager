@@ -19,15 +19,15 @@ public class DoctorList {
     // MODIFIES: doctors
     // EFFECTS: initializes list of doctors with all doctors currently employed at the hospital
     public void initDoctors() {
-        doctors.add(D1);
-        doctors.add(D2);
-        doctors.add(D3);
-        doctors.add(D4);
-        doctors.add(D5);
-        doctors.add(D6);
-        doctors.add(D7);
-        doctors.add(D8);
-        doctors.add(D9);
+        addDoctor(D1);
+        addDoctor(D2);
+        addDoctor(D3);
+        addDoctor(D4);
+        addDoctor(D5);
+        addDoctor(D6);
+        addDoctor(D7);
+        addDoctor(D8);
+        addDoctor(D9);
     }
 
     // get list of doctors
@@ -36,4 +36,9 @@ public class DoctorList {
         return this.doctors;
     }
 
+    // add doctor to list of doctors
+    // EFFECTS: adds doctor to list of doctors
+    public void addDoctor(Doctor d) {
+        doctors.add(d);
+    }
 }

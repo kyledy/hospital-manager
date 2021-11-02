@@ -11,9 +11,18 @@ import java.util.Scanner;
 // Hospital Manager application
 // This code references the AccountNotRobust and JSONSerialization demo projects given by the course.
 public class HospitalManager {
-    private static final String JSON_STORE = "./data/medicalrecords.json";
-    private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
+    private static final String MEDICAL_RECORD_STORE = "./data/medicalrecords.json";
+    private static final String PATIENT_LIST_STORE = "./data/patients.json";
+    private static final String APPOINTMENT_STORE = "./data/appointments.json";
+
+    private JsonWriter medicalRecordWriter;
+    private JsonReader medicalRecordReader;
+
+    private JsonWriter patientListWriter;
+    private JsonReader patientListReader;
+
+    private JsonWriter appointmentWriter;
+    private JsonReader appointmentReader;
 
     // system-wide username and password
     private static final String ADMIN_USERNAME = "admin";
@@ -33,8 +42,14 @@ public class HospitalManager {
     public HospitalManager() throws FileNotFoundException {
 
         // initializes JSON writer and JSON reader
-        jsonWriter = new JsonWriter(JSON_STORE);
-        jsonReader = new JsonReader(JSON_STORE);
+        medicalRecordWriter = new JsonWriter(MEDICAL_RECORD_STORE);
+        medicalRecordReader = new JsonReader(MEDICAL_RECORD_STORE);
+
+        patientListWriter = new JsonWriter(PATIENT_LIST_STORE);
+        patientListReader = new JsonReader(PATIENT_LIST_STORE);
+
+        appointmentWriter = new JsonWriter(APPOINTMENT_STORE);
+        appointmentReader = new JsonReader(APPOINTMENT_STORE);
 
         Scanner myScanner = new Scanner(System.in);
 
@@ -116,9 +131,9 @@ public class HospitalManager {
         System.out.println("\t9 -> show all doctors");
         System.out.println("\t10 -> show all inquiries");
         // This saves all currently checked-in patients, medical records, and appointments to file
-        System.out.println("\t11 -> save medical records to file");
+        System.out.println("\t11 -> save state to file");
         // This loads all previously checked-in patients, medical records, and appointments to file
-        System.out.println("\t12 -> load medical records from file");
+        System.out.println("\t12 -> load state from file");
         System.out.println("\tq -> quit");
     }
 
@@ -128,44 +143,58 @@ public class HospitalManager {
     // EFFECTS: processes user command
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private void processCommand(String command) {
-        if (command.equals("1")) {
-            // check in a patient
-            checkInPatient();
-        } else if (command.equals("2")) {
-            // check out a patient
-            checkOutPatient();
-        } else if (command.equals("3")) {
-            // show all patients
-            showAllPatients();
-        } else if (command.equals("4")) {
-            // make a new medical record
-            makeMedicalRecord();
-        } else if (command.equals("5")) {
-            // show all medical records
-            showMedicalRecords();
-        } else if (command.equals("6")) {
-            // book an appointment for a patient
-            bookAppointment();
-        } else if (command.equals("7")) {
-            // remove an appointment from the list of booked appointments
-            removeAppointment();
-        } else if (command.equals("8")) {
-            // show all booked appointments
-            showAllAppointments();
-        } else if (command.equals("9")) {
-            // show all doctors
-            showDoctors();
-        } else if (command.equals("10")) {
-            // show all inquiries
-            showInquiries();
-        } else if (command.equals("11")) {
-            // save medical records to file
-            saveMedicalRecords();
-        } else if (command.equals("12")) {
-            // load medical records from file
-            loadMedicalRecords();
-        } else {
-            System.out.println("Selection not valid...");
+        switch (command) {
+            case "1":
+                // check in a patient
+                checkInPatient();
+                break;
+            case "2":
+                // check out a patient
+                checkOutPatient();
+                break;
+            case "3":
+                // show all patients
+                showAllPatients();
+                break;
+            case "4":
+                // make a new medical record
+                makeMedicalRecord();
+                break;
+            case "5":
+                // show all medical records
+                showMedicalRecords();
+                break;
+            case "6":
+                // book an appointment for a patient
+                bookAppointment();
+                break;
+            case "7":
+                // remove an appointment from the list of booked appointments
+                removeAppointment();
+                break;
+            case "8":
+                // show all booked appointments
+                showAllAppointments();
+                break;
+            case "9":
+                // show all doctors
+                showDoctors();
+                break;
+            case "10":
+                // show all inquiries
+                showInquiries();
+                break;
+            case "11":
+                // save medical records to file
+                saveState();
+                break;
+            case "12":
+                // load medical records from file
+                loadState();
+                break;
+            default:
+                System.out.println("Selection not valid...");
+                break;
         }
     }
 
@@ -182,7 +211,7 @@ public class HospitalManager {
         int tempId = Integer.parseInt(myScanner.nextLine());
 
         // initializes the patient
-        Patient p = new Patient(tempName);
+        Patient p = new Patient(tempName, tempId);
         p.setId(tempId);
 
         // adds patient to list of patients
@@ -268,7 +297,7 @@ public class HospitalManager {
         System.out.println("Please enter the name of the patient you wish to book.");
         String tempName = myScanner.nextLine();
 
-        System.out.println("Please enter the time you wish to have your appointment. [XXX am/pm]");
+        System.out.println("Please enter the time you wish to have your appointment. [000 am/pm]");
         String tempTime = myScanner.nextLine();
 
         // constructs new Appointment from user input
@@ -334,27 +363,43 @@ public class HospitalManager {
     }
 
     // EFFECTS: saves the current state of program to file
-    private void saveMedicalRecords() {
+    private void saveState() {
         try {
-            jsonWriter.open();
-            jsonWriter.writeMedicalRecordList(ml);
-            jsonWriter.close();
-            System.out.println("Saved medical records to " + JSON_STORE);
+            medicalRecordWriter.open();
+            medicalRecordWriter.writeMedicalRecordList(ml);
+            medicalRecordWriter.close();
+            System.out.println("Saved medical records to " + MEDICAL_RECORD_STORE);
+
+            patientListWriter.open();
+            patientListWriter.writePatientList(pl);
+            patientListWriter.close();
+            System.out.println("Saved list of patients to " + PATIENT_LIST_STORE);
+
+            appointmentWriter.open();
+            appointmentWriter.writeAppointmentList(al);
+            appointmentWriter.close();
+            System.out.println("Saved list of appointments to " + APPOINTMENT_STORE);
 
         } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to file: " + JSON_STORE);
+            System.out.println("File not found!");
         }
     }
 
     // MODIFIES: this
     // EFFECTS: loads previous state of program from file
-    private void loadMedicalRecords() {
+    private void loadState() {
         try {
-            ml = jsonReader.readMedicalRecordList();
-            System.out.println("Loaded medical records from " + JSON_STORE);
+            ml = medicalRecordReader.readMedicalRecordList();
+            System.out.println("Loaded medical records from " + MEDICAL_RECORD_STORE);
+
+            pl = patientListReader.readPatientList();
+            System.out.println("Loaded patient list from " + PATIENT_LIST_STORE);
+
+            al = appointmentReader.readAppointmentList();
+            System.out.println("Loaded appointment list from " + APPOINTMENT_STORE);
 
         } catch (IOException e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
+            System.out.println("File not found!");
         }
     }
 }
