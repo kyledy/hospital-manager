@@ -24,10 +24,6 @@ public class HospitalManager {
     private JsonWriter appointmentWriter;
     private JsonReader appointmentReader;
 
-    // system-wide username and password
-    private static final String ADMIN_USERNAME = "admin";
-    private static final String ADMIN_PASSWORD = "1234";
-
     private Scanner input;
 
     // lists that need to be initialized
@@ -51,27 +47,7 @@ public class HospitalManager {
         appointmentWriter = new JsonWriter(APPOINTMENT_STORE);
         appointmentReader = new JsonReader(APPOINTMENT_STORE);
 
-        Scanner myScanner = new Scanner(System.in);
-
-        System.out.println("Welcome to MyHospitalManager! How may I assist you today?");
-        System.out.println("** username: admin **");
-        System.out.println("** password: 1234 **");
-        System.out.println("\n");
-
-        System.out.println("Please enter your username below.");
-        String tryUsername = myScanner.nextLine();
-
-        System.out.println("Please enter your password below.");
-        String tryPassword = myScanner.nextLine();
-
-        // login verification
-        if (tryUsername.equals(ADMIN_USERNAME) && tryPassword.equals(ADMIN_PASSWORD)) {
-            System.out.println("Welcome, Administrator.");
-            runHospitalManager();
-
-        } else {
-            System.out.println("Your username or password is incorrect. Please try again.");
-        }
+        runHospitalManager();
     }
 
     // command-line interface

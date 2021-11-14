@@ -1,14 +1,14 @@
 package ui;
 
-import java.io.FileNotFoundException;
+import javax.swing.*;
 
-// The main class! This class calls the HospitalManager app.
 public class Main {
     public static void main(String[] args) {
-        try {
-            new HospitalManager();
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to run application: file not found");
-        }
+        LoginScreen loginScreen = new LoginScreen();
+        loginScreen.setTitle("Login -- MyHospitalManager");
+        loginScreen.setVisible(true);
+        loginScreen.setBounds(800, 200, 500, 700);
+        loginScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginScreen.setResizable(false);
     }
 }

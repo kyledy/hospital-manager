@@ -4,12 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-/*
+import java.io.FileNotFoundException;
 
 // This class represents the login system of the program.
-public class Login extends JFrame implements ActionListener {
+// This code references an online tutorial from https://www.tutorialsfield.com/login-form-in-java-swing-with-source-
+// code/. More specifically, the ActionPerformed method.
+public class LoginScreen extends JFrame implements ActionListener {
 
-    // User interface elements
+    // Login button elements
     Container container = getContentPane();
     JLabel username = new JLabel("Username");
     JLabel password = new JLabel("Password");
@@ -22,29 +24,22 @@ public class Login extends JFrame implements ActionListener {
     private static final String CORRECT_USERNAME = "admin";
     private static final String CORRECT_PASSWORD = "1234";
 
-    public Login() {
+    // constructor
+    // EFFECTS: constructs the login button
+    public LoginScreen() {
         container.setLayout(null);
-        init();
+        setPositionAndSize();
         addComponents();
         addActionEvents();
     }
 
-    public static void main(String[] args) {
-        Login login = new Login();
-        login.setTitle("Login Form");
-        login.setVisible(true);
-        login.setBounds(10, 10, 370, 600);
-        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        login.setResizable(false);
-    }
-
-    public void init() {
-        username.setBounds(50, 150, 100, 30);
-        password.setBounds(50, 220, 100, 30);
-        usernameField.setBounds(150, 150, 150, 30);
-        passwordField.setBounds(150, 220, 150, 30);
-        loginButton.setBounds(50, 300, 100, 30);
-        showPassword.setBounds(150, 250, 150, 30);
+    public void setPositionAndSize() {
+        username.setBounds(100, 150, 100, 30);
+        password.setBounds(100, 220, 100, 30);
+        usernameField.setBounds(200, 150, 150, 30);
+        passwordField.setBounds(200, 220, 150, 30);
+        loginButton.setBounds(170, 350, 100, 30);
+        showPassword.setBounds(200, 250, 150, 30);
     }
 
     public void addComponents() {
@@ -72,7 +67,14 @@ public class Login extends JFrame implements ActionListener {
             // for ease of implementation.
             tryPassword = passwordField.getText();
             if (tryUsername.equals(CORRECT_USERNAME) && tryPassword.equals(CORRECT_PASSWORD)) {
-                new HospitalManager();
+                dispose();
+
+                try {
+                    new HospitalManager();
+                } catch (FileNotFoundException fe) {
+                    System.out.println("Unable to run application: file not found");
+                }
+
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Username or Password");
             }
@@ -88,5 +90,3 @@ public class Login extends JFrame implements ActionListener {
         }
     }
 }
-
-*/
