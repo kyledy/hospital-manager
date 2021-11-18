@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import model.MedicalRecord;
 import model.MedicalRecordList;
 
@@ -37,6 +38,11 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
         addActionEvents();
     }
 
+    // getter method for the medical record list of the class. used by the MedicalRecordTable class.
+    public MedicalRecordList getMedicalRecordList() {
+        return ml;
+    }
+
     // MODIFIES: makeMedicalRecordButton, showMedicalRecordsButton, background Panel
     // EFFECTS: sets the coordinates and dimensions of the buttons on the screen, and background panel
     public void setPositionAndSize() {
@@ -59,6 +65,16 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
     public void addActionEvents() {
         makeMedicalRecordButton.addActionListener(this);
         showMedicalRecordsButton.addActionListener(this);
+    }
+
+    // TODO: finish this
+    public void saveMedicalRecordsToJson() {
+
+    }
+
+    // TODO: finish this
+    public void loadMedicalRecordsFromJson() {
+
     }
 
     // EFFECTS: specifies action listening behavior for specific GUI components
@@ -84,7 +100,7 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
 
         // EFFECTS: shows all medical records contained in the program
         if (e.getSource() == showMedicalRecordsButton) {
-            // nothing for now
+            new MedicalRecordTable(this);
         }
     }
 }

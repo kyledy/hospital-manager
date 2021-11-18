@@ -175,11 +175,17 @@ public class MainMenu extends JFrame implements ActionListener {
 
         // Brings the user to the appointment menu if appointmentButton is pressed
         if (e.getSource() == saveStateButton) {
+            appointmentMenu.saveAppointmentsToJson();
+            medicalRecordMenu.saveMedicalRecordsToJson();
+            patientMenu.savePatientsToJson();
             JOptionPane.showMessageDialog(this, "Successfully saved data to file.");
         }
 
         // Brings the user to the appointment menu if appointmentButton is pressed
         if (e.getSource() == loadStateButton) {
+            appointmentMenu.loadAppointmentsFromJson();
+            medicalRecordMenu.loadMedicalRecordsFromJson();
+            patientMenu.loadPatientsFromJson();
             JOptionPane.showMessageDialog(this, "Successfully loaded data from file.");
         }
 
