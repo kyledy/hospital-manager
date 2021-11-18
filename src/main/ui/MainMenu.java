@@ -52,9 +52,9 @@ public class MainMenu extends JFrame implements ActionListener {
         addComponents();
         addActionEvents();
 
-        JOptionPane.showMessageDialog(this, "README: To save and load your data without"
-                + " causing an error, please click the Patient, Medical Records, and Appointment Menus at least once."
-                + " To view this message again, click Help > README.");
+        JOptionPane.showMessageDialog(this, "To successfully save and load your data, "
+                + "please click the Patients, Medical Records, and Appointments Menus at "
+                + "least once.");
     }
 
     // MODIFIES: patientButton, doctorButton, inquiryButton, medicalRecordButton, appointmentButton,
@@ -183,8 +183,8 @@ public class MainMenu extends JFrame implements ActionListener {
 
         // Allows the user to view the README message again
         if (e.getSource() == readMeButton) {
-            JOptionPane.showMessageDialog(this, "README: To save and load your data without"
-                    + " causing an error, please click the Patient, Medical Records, and Appointment Menus at "
+            JOptionPane.showMessageDialog(this, "To successfully save and load your data, "
+                    + "please click the Patients, Medical Records, and Appointments Menus at "
                     + "least once.");
         }
     }

@@ -44,7 +44,7 @@ public class DoctorMenu extends JFrame {
             for (Doctor doctor : dl.getDoctors()) {
                 object[0][0] = "Name";
                 object[0][1] = "Department";
-                object[i][0] = doctor.getDoctorName();
+                object[i][0] = "Dr. " + doctor.getDoctorName();
                 object[i][1] = doctor.getDepartment();
                 i++;
                 doctorTable = new JTable(object, columns);
