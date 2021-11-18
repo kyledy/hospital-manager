@@ -127,7 +127,7 @@ public class MainMenu extends JFrame implements ActionListener {
     // EFFECTS: adds action listening behavior for GUI components
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) throws NullPointerException {
 
         // Brings the user to the patient menu if patientButton is pressed
         if (e.getSource() == patientButton) {
@@ -156,10 +156,15 @@ public class MainMenu extends JFrame implements ActionListener {
 
         // Allows the user to save the current state of their application to file
         if (e.getSource() == saveStateButton) {
-            appointmentMenu.saveAppointmentsToJson();
-            medicalRecordMenu.saveMedicalRecordsToJson();
-            patientMenu.savePatientsToJson();
-            JOptionPane.showMessageDialog(this, "Successfully saved data to file.");
+            try {
+                appointmentMenu.saveAppointmentsToJson();
+                medicalRecordMenu.saveMedicalRecordsToJson();
+                patientMenu.savePatientsToJson();
+                JOptionPane.showMessageDialog(this, "Successfully saved data to file.");
+            } catch (NullPointerException ne) {
+                ne.printStackTrace();
+                JOptionPane.showMessageDialog(this, "The lists have not been initialized!");
+            }
         }
 
         // Allows the user to load a previous state of their application from file
