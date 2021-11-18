@@ -2,26 +2,16 @@ package ui;
 
 import model.Patient;
 import model.PatientList;
-import persistence.JsonReader;
-import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 // This class represents the UI of the patient check-in feature of the program.
-// This code references the JSONSerialization demo project given by the course.
 public class PatientMenu extends JFrame implements ActionListener {
 
-    private static final String PATIENT_LIST_STORE = "./data/patients.json";
-    private JsonWriter patientListWriter;
-    private JsonReader patientListReader;
-
-    // initializing an empty list of patients to be used by the program
-    protected PatientList pl = new PatientList();
+    protected PatientList pl;
 
     // GUI components for the patient menu
     Container patientMenu = getContentPane();
@@ -35,7 +25,10 @@ public class PatientMenu extends JFrame implements ActionListener {
 
     // constructor
     // EFFECTS: constructs a window containing the GUI elements for the patient check-in
-    public PatientMenu() {
+    public PatientMenu(MainMenu mm) {
+
+        // accessing list of patients declared from main menu
+        pl = mm.pl;
 
         this.setTitle("MyHospitalManager -- Patients");
         this.setVisible(true);
@@ -43,7 +36,6 @@ public class PatientMenu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
 
-        initializeReaderAndWriter();
         patientMenu.setLayout(null);
         setPositionAndSize();
         addComponents();
@@ -53,12 +45,6 @@ public class PatientMenu extends JFrame implements ActionListener {
     // getter method for the appointment list of the class. used by the AppointmentTable class.
     public PatientList getPatientList() {
         return pl;
-    }
-
-    // EFFECTS: initializes patient readers and writers
-    public void initializeReaderAndWriter() {
-        patientListWriter = new JsonWriter(PATIENT_LIST_STORE);
-        patientListReader = new JsonReader(PATIENT_LIST_STORE);
     }
 
     // MODIFIES: checkInButton, checkOutButton, showPatientsButton, backgroundPanel
@@ -86,26 +72,6 @@ public class PatientMenu extends JFrame implements ActionListener {
         checkInButton.addActionListener(this);
         checkOutButton.addActionListener(this);
         showPatientsButton.addActionListener(this);
-    }
-
-    // EFFECTS: saves list of appointments to JSon
-    public void savePatientsToJson() {
-        try {
-            patientListWriter.open();
-            patientListWriter.writePatientList(pl);
-            patientListWriter.close();
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "File not found!");
-        }
-    }
-
-    // EFFECTS: parses list of appointments from JSon
-    public void loadPatientsFromJson() {
-        try {
-            pl = patientListReader.readPatientList();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "File not found!");
-        }
     }
 
     // EFFECTS: specifies action listening behavior for selected GUI components

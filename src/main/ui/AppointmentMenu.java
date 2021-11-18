@@ -2,27 +2,18 @@ package ui;
 
 import model.Appointment;
 import model.AppointmentList;
-import persistence.JsonReader;
-import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
 
 // This class represents the UI of the appointment booking feature of the program.
-// This code references the JSONSerialization demo project given by the course.
 public class AppointmentMenu extends JFrame implements ActionListener {
 
-    // persistence elements
-    private static final String APPOINTMENT_STORE = "./data/appointments.json";
-    private JsonWriter appointmentWriter;
-    private JsonReader appointmentReader;
-
     // initializing list of appointments to be used by the program
-    protected AppointmentList al = new AppointmentList();
+    protected AppointmentList al;
 
     // GUI components for the appointments menu
     Container appointmentMenu = getContentPane();
@@ -36,7 +27,10 @@ public class AppointmentMenu extends JFrame implements ActionListener {
 
     // constructor
     // EFFECTS: constructs a window containing the GUI elements for the appointment booker
-    public AppointmentMenu() {
+    public AppointmentMenu(MainMenu mm) {
+
+        // accessing list of appointments declared from main menu
+        al = mm.al;
 
         this.setTitle("MyHospitalManager -- Appointments");
         this.setVisible(true);
@@ -44,17 +38,10 @@ public class AppointmentMenu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
 
-        initializeReaderAndWriter();
         appointmentMenu.setLayout(null);
         setPositionAndSize();
         addComponents();
         addActionEvents();
-    }
-
-    // EFFECTS: initializes the JSon readers and writers for the Appointment class
-    public void initializeReaderAndWriter() {
-        appointmentWriter = new JsonWriter(APPOINTMENT_STORE);
-        appointmentReader = new JsonReader(APPOINTMENT_STORE);
     }
 
     // MODIFIES: makeAppointmentButton, removeAppointmentButton, showAppointmentButton, backgroundPanel
@@ -87,28 +74,6 @@ public class AppointmentMenu extends JFrame implements ActionListener {
     // getter method for the appointment list of the class. used by the AppointmentTable class.
     public AppointmentList getAppointmentList() {
         return al;
-    }
-
-    // EFFECTS: saves current list of appointments as a JSonObject
-    public void saveAppointmentsToJson() {
-        try {
-            appointmentWriter.open();
-            appointmentWriter.writeAppointmentList(al);
-            appointmentWriter.close();
-
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "File not found!");
-        }
-    }
-
-    // EFFECTS: parses list of appointments from JSon
-    public void loadAppointmentsFromJson() {
-        try {
-            al = appointmentReader.readAppointmentList();
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "File not found!");
-        }
     }
 
     // EFFECTS: specifies action behavior for each listed action event

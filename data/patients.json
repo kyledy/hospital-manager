@@ -1,4 +1,10 @@
-{"patients": [{
-    "name": "andie",
-    "id": 123
-}]}
+{"patients": [
+    {
+        "name": "kyle",
+        "id": 1234
+    },
+    {
+        "name": "andie",
+        "id": 2345
+    }
+]}
