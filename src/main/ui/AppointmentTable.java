@@ -19,7 +19,6 @@ public class AppointmentTable extends JFrame {
     Object[][] object = new Object[30][30];
 
     // constructor
-    // MODIFIES: al, tableContainer, appointmentTable
     // EFFECTS: initializes appointment list from appointment menu, creates window with table showing all appointments
     public AppointmentTable(AppointmentMenu am) {
         al = am.getAppointmentList();

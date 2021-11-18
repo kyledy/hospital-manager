@@ -19,7 +19,6 @@ public class DoctorMenu extends JFrame {
     Object[][] object = new Object[10][10];
 
     // constructor
-    // MODIFIES: dl, tableContainer, doctorTable
     // EFFECTS: initializes list of doctors with final variables, and constructs window with table showing all values.
     public DoctorMenu() {
         dl.initDoctors();

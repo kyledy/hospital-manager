@@ -19,7 +19,6 @@ public class InquiryMenu extends JFrame {
     Object[][] object = new Object[4][4];
 
     // constructor
-    // MODIFIES: il, tableContainer, inquiryTable
     // EFFECTS: initializes inquiry list with dummy inquiries, constructs a window containing the table where the
     // values are held
     public InquiryMenu() {

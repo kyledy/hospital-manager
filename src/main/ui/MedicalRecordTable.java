@@ -19,7 +19,6 @@ public class MedicalRecordTable extends JFrame {
     Object[][] object = new Object[30][30];
 
     // constructor
-    // MODIFIES: ml, tableContainer, medicalRecordTable
     // EFFECTS: initializes medical record list from medical record menu, constructs a window with table using the
     // corresponding data values
     public MedicalRecordTable(MedicalRecordMenu mm) {

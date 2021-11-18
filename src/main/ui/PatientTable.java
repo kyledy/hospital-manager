@@ -19,7 +19,6 @@ public class PatientTable extends JFrame {
     Object[][] object = new Object[30][30];
 
     // constructor
-    // MODIFIES: pl, tableContainer, patientTable
     // EFFECTS: initializes patient list with values from patient menu, and constructs a table with values from patient
     // list
     public PatientTable(PatientMenu pm) {

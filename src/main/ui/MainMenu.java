@@ -36,6 +36,8 @@ public class MainMenu extends JFrame implements ActionListener {
     JPanel backgroundPanel = new JPanel();
     Color customColor = new Color(167, 222, 250);
 
+    // constructor
+    // EFFECTS: displays the main menu of the program, and an important README message
     public MainMenu() throws FileNotFoundException {
         this.setTitle("MyHospitalManager -- Main Menu");
         this.setVisible(true);
