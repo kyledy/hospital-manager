@@ -25,3 +25,17 @@ and pursue my interests further.
 - As a user, I wish to be able to save the current state of the program to file (more specifically 
 currently checked-in patients,  medical records, and booked appointments).
 - As a user, I wish to be given the option to load the previous state of my program.
+
+##Phase 4: Task 2
+nothing yet
+
+##Phase 4: Task 3
+
+Looking back on my UML diagram, if I had more time to refactor the code, I would refactor my design in the following
+ways: 
+- Move the lists of data above in the hierarchy right under MainMenu, so that it could be a focal point of control
+- Integrate the list of appointments, doctors, medical records, patients, and inquiries directly into their menu 
+classes, to increase cohesion and reduce coupling.
+- This one feels a bit unrealistic, but have main menu implement the writable interface (or an interface with similar
+functionality) so that all its subclasses could freely implement the toJson() methods without complicating the design
+further.

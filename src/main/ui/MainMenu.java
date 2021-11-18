@@ -19,10 +19,12 @@ import java.io.IOException;
 // Phase 3
 public class MainMenu extends JFrame implements ActionListener {
 
-    // Declaration of menu variables so that persistence methods can access variables of that class
+    // Declaration of menu variables
     protected PatientMenu patientMenu;
     protected MedicalRecordMenu medicalRecordMenu;
     protected AppointmentMenu appointmentMenu;
+    protected DoctorMenu doctorMenu;
+    protected InquiryMenu inquiryMenu;
 
     // initializing lists to data to be used by the application
     protected AppointmentList al = new AppointmentList();
@@ -200,12 +202,12 @@ public class MainMenu extends JFrame implements ActionListener {
 
         // Brings the user to the doctor menu if doctorButton is pressed
         if (e.getSource() == doctorButton) {
-            new DoctorMenu();
+            doctorMenu = new DoctorMenu();
         }
 
         // Brings the user to the inquiry menu if inquiryButton is pressed
         if (e.getSource() == inquiryButton) {
-            new InquiryMenu();
+            inquiryMenu = new InquiryMenu();
         }
 
         // Brings the user to the medical record menu if medicalRecordButton is pressed

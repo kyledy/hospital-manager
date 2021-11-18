@@ -32,7 +32,7 @@ public class LoginScreen extends JFrame implements ActionListener {
     // EFFECTS: constructs the login button
     public LoginScreen() {
 
-        this.setTitle("MyHospitalManager -- Login");
+        this.setTitle("Login authentication required");
         this.setVisible(true);
         this.setBounds(800, 200, 500, 700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
