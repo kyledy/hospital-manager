@@ -1,4 +1,4 @@
-# My Personal Project: MyHospitalManager
+# Term Project for CPSC 210: MyHospitalManager
 
 ### What does the application do?
 
