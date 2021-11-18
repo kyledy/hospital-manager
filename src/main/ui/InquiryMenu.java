@@ -35,7 +35,7 @@ public class InquiryMenu extends JFrame {
 
         tableContainer.setLayout(null);
         tableContainer.add(inquiryTable);
-        inquiryTable.setBounds(0,0, 550, 1000);
+        inquiryTable.setBounds(0, 0, 550, 1000);
     }
 
     // MODIFIES: inquiryTable

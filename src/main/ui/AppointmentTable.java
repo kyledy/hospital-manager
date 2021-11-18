@@ -34,7 +34,7 @@ public class AppointmentTable extends JFrame {
 
         tableContainer.setLayout(null);
         tableContainer.add(appointmentTable);
-        appointmentTable.setBounds(0,0, 550, 1000);
+        appointmentTable.setBounds(0, 0, 550, 1000);
     }
 
     // MODIFIES: appointmentTable

@@ -1,14 +1,14 @@
 package persistence;
 
 import model.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
-
-import org.json.*;
 
 // This class references code from the JSonSerialization demo project given by the course.
 // This class represents a reader that takes a JSon object and converts it to a medical record.

@@ -1,6 +1,5 @@
 package persistence;
 
-import model.Appointment;
 import model.AppointmentList;
 import model.MedicalRecordList;
 import model.PatientList;

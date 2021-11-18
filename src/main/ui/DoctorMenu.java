@@ -34,7 +34,7 @@ public class DoctorMenu extends JFrame {
 
         tableContainer.setLayout(null);
         tableContainer.add(doctorTable);
-        doctorTable.setBounds(0,0, 550, 1000);
+        doctorTable.setBounds(0, 0, 550, 1000);
     }
 
     // MODIFIES: doctorTable

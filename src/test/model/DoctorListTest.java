@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static model.Doctor.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DoctorListTest {
