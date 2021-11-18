@@ -1,15 +1,25 @@
 package ui;
 
+import model.MedicalRecord;
+import model.MedicalRecordList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import model.MedicalRecord;
-import model.MedicalRecordList;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 // This class represents the UI of the medical records feature of the program.
+// This code references the JSONSerialization demo project given by the course.
 public class MedicalRecordMenu extends JFrame implements ActionListener {
+
+    // persistence elements
+    private static final String MEDICAL_RECORD_STORE = "./data/medicalrecords.json";
+    private JsonWriter medicalRecordWriter;
+    private JsonReader medicalRecordReader;
 
     // initializing a list of medical records to be manipulated by the program.
     protected MedicalRecordList ml = new MedicalRecordList();
@@ -32,10 +42,17 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
 
+        initializeReaderAndWriter();
         medicalRecordMenu.setLayout(null);
         setPositionAndSize();
         addComponents();
         addActionEvents();
+    }
+
+    // EFFECTS: initializes medical record readers and writers
+    public void initializeReaderAndWriter() {
+        medicalRecordWriter = new JsonWriter(MEDICAL_RECORD_STORE);
+        medicalRecordReader = new JsonReader(MEDICAL_RECORD_STORE);
     }
 
     // getter method for the medical record list of the class. used by the MedicalRecordTable class.
@@ -48,7 +65,7 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
     public void setPositionAndSize() {
         makeMedicalRecordButton.setBounds(115, 150, 300, 150);
         showMedicalRecordsButton.setBounds(115, 350, 300, 150);
-        backgroundPanel.setBounds(0,0,650,750);
+        backgroundPanel.setBounds(0, 0, 650, 750);
     }
 
     // MODIFIES: medicalRecordMenu, backgroundPanel
@@ -67,14 +84,24 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
         showMedicalRecordsButton.addActionListener(this);
     }
 
-    // TODO: finish this
+    // EFFECTS: saves list of medicalRecords to JSon
     public void saveMedicalRecordsToJson() {
-
+        try {
+            medicalRecordWriter.open();
+            medicalRecordWriter.writeMedicalRecordList(ml);
+            medicalRecordWriter.close();
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
     }
 
-    // TODO: finish this
+    // EFFECTS: parses list of medical records from JSon
     public void loadMedicalRecordsFromJson() {
-
+        try {
+            ml = medicalRecordReader.readMedicalRecordList();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
     }
 
     // EFFECTS: specifies action listening behavior for specific GUI components

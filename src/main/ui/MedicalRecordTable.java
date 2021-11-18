@@ -6,6 +6,7 @@ import model.MedicalRecordList;
 import javax.swing.*;
 import java.awt.*;
 
+// This class represents the GUI representation in table form of medical records stored by the program.
 public class MedicalRecordTable extends JFrame {
 
     // accessing the medical record list from medical record menu
@@ -34,7 +35,7 @@ public class MedicalRecordTable extends JFrame {
 
         tableContainer.setLayout(null);
         tableContainer.add(medicalRecordTable);
-        medicalRecordTable.setBounds(0,0, 750, 1000);
+        medicalRecordTable.setBounds(0, 0, 750, 1000);
     }
 
     // MODIFIES: medicalRecordTable

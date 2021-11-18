@@ -1,15 +1,10 @@
 package ui;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.io.FileNotFoundException;
-
-
-// TODO: add a visual component
 
 // This class represents the login system of the program.
 // This code references an online tutorial from https://www.tutorialsfield.com/login-form-in-java-swing-with-source-
@@ -47,6 +42,8 @@ public class LoginScreen extends JFrame implements ActionListener {
         setPositionAndSize();
         addComponents();
         addActionEvents();
+
+        JOptionPane.showMessageDialog(this, "Username is admin, Password is 1234");
     }
 
     // EFFECTS: sets the position and size of the GUI elements on the content pane
@@ -57,7 +54,7 @@ public class LoginScreen extends JFrame implements ActionListener {
         passwordField.setBounds(200, 220, 150, 30);
         loginButton.setBounds(170, 350, 100, 30);
         showPassword.setBounds(200, 250, 150, 30);
-        backgroundPanel.setBounds(0,0,600, 700);
+        backgroundPanel.setBounds(0, 0, 600, 700);
     }
 
     // MODIFIES: container

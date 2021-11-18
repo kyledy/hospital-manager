@@ -1,8 +1,5 @@
 package ui;
 
-import persistence.JsonReader;
-import persistence.JsonWriter;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,25 +12,10 @@ import java.io.FileNotFoundException;
 // Phase 3
 public class MainMenu extends JFrame implements ActionListener {
 
-    // JSON storage files
-    private static final String MEDICAL_RECORD_STORE = "./data/medicalrecords.json";
-    private static final String PATIENT_LIST_STORE = "./data/patients.json";
-    private static final String APPOINTMENT_STORE = "./data/appointments.json";
-
     // Declaration of menu variables so that persistence methods can access variables of that class
     protected PatientMenu patientMenu;
     protected MedicalRecordMenu medicalRecordMenu;
     protected AppointmentMenu appointmentMenu;
-
-    // JSON readers and writers
-    private JsonWriter medicalRecordWriter;
-    private JsonReader medicalRecordReader;
-
-    private JsonWriter patientListWriter;
-    private JsonReader patientListReader;
-
-    private JsonWriter appointmentWriter;
-    private JsonReader appointmentReader;
 
     // GUI components for the main menu
     Container mainMenu = getContentPane();
@@ -48,6 +30,7 @@ public class MainMenu extends JFrame implements ActionListener {
     JMenuItem saveStateButton;
     JMenuItem loadStateButton;
     JMenuItem aboutButton;
+    JMenuItem readMeButton;
 
     // These two components set the background color
     JPanel backgroundPanel = new JPanel();
@@ -60,15 +43,16 @@ public class MainMenu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
-        // initializing JSon readers and writers
-        initializeReaderAndWriter();
-
         mainMenu.setLayout(null);
         createMenuBar();
         createMenus();
         setPositionAndSize();
         addComponents();
         addActionEvents();
+
+        JOptionPane.showMessageDialog(this, "README: To save and load your data without"
+                + " causing an error, please click the Patient, Medical Records, and Appointment Menus at least once."
+                + " To view this message again, click Help > README.");
     }
 
     // MODIFIES: patientButton, doctorButton, inquiryButton, medicalRecordButton, appointmentButton,
@@ -83,6 +67,8 @@ public class MainMenu extends JFrame implements ActionListener {
         backgroundPanel.setBounds(0, 0, 1000, 900);
     }
 
+    // MODIFIES: mainMenu, menuBar
+    // EFFECTS: constructs menu bar with menu items on top of the screen
     public void createMenuBar() {
         menuBar = new JMenuBar();
         mainMenu.add(menuBar);
@@ -95,6 +81,8 @@ public class MainMenu extends JFrame implements ActionListener {
         menuBar.setVisible(true);
     }
 
+    // MODIFIES: saveStateButton, loadStateButton, menuFile, aboutButton, menuHelp
+    // EFFECTS: initializes menu items on menu bar
     public void createMenus() {
         saveStateButton = new JMenuItem("Save state from file...");
         loadStateButton = new JMenuItem("Load state from file...");
@@ -102,7 +90,9 @@ public class MainMenu extends JFrame implements ActionListener {
         menuFile.add(loadStateButton);
 
         aboutButton = new JMenuItem("About");
+        readMeButton = new JMenuItem("README");
         menuHelp.add(aboutButton);
+        menuHelp.add(readMeButton);
     }
 
     // MODIFIES: container
@@ -128,18 +118,7 @@ public class MainMenu extends JFrame implements ActionListener {
         saveStateButton.addActionListener(this);
         loadStateButton.addActionListener(this);
         aboutButton.addActionListener(this);
-    }
-
-    public void initializeReaderAndWriter() {
-        // initializes JSON writers and JSON readers
-        medicalRecordWriter = new JsonWriter(MEDICAL_RECORD_STORE);
-        medicalRecordReader = new JsonReader(MEDICAL_RECORD_STORE);
-
-        patientListWriter = new JsonWriter(PATIENT_LIST_STORE);
-        patientListReader = new JsonReader(PATIENT_LIST_STORE);
-
-        appointmentWriter = new JsonWriter(APPOINTMENT_STORE);
-        appointmentReader = new JsonReader(APPOINTMENT_STORE);
+        readMeButton.addActionListener(this);
     }
 
     // action listeners for main menu GUI
@@ -173,7 +152,7 @@ public class MainMenu extends JFrame implements ActionListener {
             appointmentMenu = new AppointmentMenu();
         }
 
-        // Brings the user to the appointment menu if appointmentButton is pressed
+        // Allows the user to save the current state of their application to file
         if (e.getSource() == saveStateButton) {
             appointmentMenu.saveAppointmentsToJson();
             medicalRecordMenu.saveMedicalRecordsToJson();
@@ -181,7 +160,7 @@ public class MainMenu extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "Successfully saved data to file.");
         }
 
-        // Brings the user to the appointment menu if appointmentButton is pressed
+        // Allows the user to load a previous state of their application from file
         if (e.getSource() == loadStateButton) {
             appointmentMenu.loadAppointmentsFromJson();
             medicalRecordMenu.loadMedicalRecordsFromJson();
@@ -189,55 +168,17 @@ public class MainMenu extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "Successfully loaded data from file.");
         }
 
-        // Brings the user to the appointment menu if appointmentButton is pressed
+        // Brings the user to the appointment menu if aboutButton is pressed
         if (e.getSource() == aboutButton) {
             JOptionPane.showMessageDialog(this, "Welcome to MyHospitalManager! In this "
                     + "application you will find many useful features. Please feel free to navigate them below.");
         }
-    }
 
-    /*
-    // EFFECTS: saves the current state of program to file
-    protected void saveState() {
-
-        try {
-            medicalRecordWriter.open();
-            medicalRecordWriter.writeMedicalRecordList(ml);
-            medicalRecordWriter.close();
-            System.out.println("Saved medical records to " + MEDICAL_RECORD_STORE);
-
-            patientListWriter.open();
-            patientListWriter.writePatientList(pl);
-            patientListWriter.close();
-            System.out.println("Saved list of patients to " + PATIENT_LIST_STORE);
-
-            appointmentWriter.open();
-            appointmentWriter.writeAppointmentList(al);
-            appointmentWriter.close();
-            System.out.println("Saved list of appointments to " + APPOINTMENT_STORE);
-
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
+        // Allows the user to view the README message again
+        if (e.getSource() == readMeButton) {
+            JOptionPane.showMessageDialog(this, "README: To save and load your data without"
+                    + " causing an error, please click the Patient, Medical Records, and Appointment Menus at "
+                    + "least once.");
         }
     }
-
-    // MODIFIES: this
-    // EFFECTS: loads previous state of program from file
-    protected void loadState() {
-        try {
-            ml = medicalRecordReader.readMedicalRecordList();
-            System.out.println("Loaded medical records from " + MEDICAL_RECORD_STORE);
-
-            pl = patientListReader.readPatientList();
-            System.out.println("Loaded patient list from " + PATIENT_LIST_STORE);
-
-            al = appointmentReader.readAppointmentList();
-            System.out.println("Loaded appointment list from " + APPOINTMENT_STORE);
-
-        } catch (IOException e) {
-            System.out.println("File not found!");
-        }
-    }
-    */
-
 }

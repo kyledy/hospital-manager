@@ -6,6 +6,7 @@ import model.PatientList;
 import javax.swing.*;
 import java.awt.*;
 
+// This class represents the GUI representation in table form of patients stored by the program.
 public class PatientTable extends JFrame {
 
     // accessing the appointment list from appointment menu
