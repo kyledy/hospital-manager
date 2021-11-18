@@ -12,7 +12,7 @@ This application is intended for use by hospital personnel.
 
 I find this project fascinating because I went into Computer Science with the intent of pursuing bioinformatics.
 Ever since I was young, I have been interested in the field of medicine, largely due to the fact that my parents
-pursued medicine while they were in college. As such, I feel like this term project is a way to bridge my two passions
+studied medicine while they were in college. As such, I feel like this term project is a way to bridge my two passions
 and pursue my interests further.
 
 ## User Stories
