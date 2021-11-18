@@ -25,7 +25,7 @@ public class InquiryList {
 
     // get list of inquiries
     // EFFECTS: returns list of inquiries
-    public List<Inquiry> getInquiryList() {
+    public List<Inquiry> getInquiries() {
         return this.inquiries;
     }
 

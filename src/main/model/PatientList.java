@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // This class represents a list of patients.
+// This class references code from the JSonSerializationDemo project.
 public class PatientList implements Writable {
     private ArrayList<Patient> patients;
 
@@ -19,7 +20,7 @@ public class PatientList implements Writable {
 
     // get list of patients
     // EFFECTS: returns a list of patients
-    public List<Patient> getPatientList() {
+    public List<Patient> getPatients() {
         return this.patients;
     }
 
@@ -36,6 +37,7 @@ public class PatientList implements Writable {
     }
 
     // parses the list and converts each patient to Json
+    // EFFECTS: for each patient in the list, converts it to JSonObject and returns i t
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

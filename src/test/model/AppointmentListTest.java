@@ -18,12 +18,12 @@ public class AppointmentListTest {
     // implicitly tests the getter method
     @Test
     void testConstructor() {
-        assertEquals(0, al.getAppointmentList().size());
+        assertEquals(0, al.getAppointments().size());
     }
 
     @Test
     void testAddAppointment() {
         al.addAppointment(a);
-        assertEquals(1, al.getAppointmentList().size());
+        assertEquals(1, al.getAppointments().size());
     }
 }

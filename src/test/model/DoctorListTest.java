@@ -19,22 +19,22 @@ public class DoctorListTest {
     // implicitly tests the getter method
     @Test
     void testConstructor() {
-        assertEquals(0, dl.getDoctorList().size());
+        assertEquals(0, dl.getDoctors().size());
     }
 
     @Test
     void testInitDoctors() {
         dl.initDoctors();
-        assertEquals(NUM_DOCTORS, dl.getDoctorList().size());
-        assertEquals(D1, dl.getDoctorList().get(0));
-        assertEquals(D2, dl.getDoctorList().get(1));
-        assertEquals(D3, dl.getDoctorList().get(2));
-        assertEquals(D4, dl.getDoctorList().get(3));
-        assertEquals(D5, dl.getDoctorList().get(4));
-        assertEquals(D6, dl.getDoctorList().get(5));
-        assertEquals(D7, dl.getDoctorList().get(6));
-        assertEquals(D8, dl.getDoctorList().get(7));
-        assertEquals(D9, dl.getDoctorList().get(8));
+        assertEquals(NUM_DOCTORS, dl.getDoctors().size());
+        assertEquals(D1, dl.getDoctors().get(0));
+        assertEquals(D2, dl.getDoctors().get(1));
+        assertEquals(D3, dl.getDoctors().get(2));
+        assertEquals(D4, dl.getDoctors().get(3));
+        assertEquals(D5, dl.getDoctors().get(4));
+        assertEquals(D6, dl.getDoctors().get(5));
+        assertEquals(D7, dl.getDoctors().get(6));
+        assertEquals(D8, dl.getDoctors().get(7));
+        assertEquals(D9, dl.getDoctors().get(8));
     }
 
 }

@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 // This class represents information on a patient checked in at the hospital.
+// This class references code from the JSonSerializationDemo project.
 public class Patient implements Writable {
 
     // A Patient has a name and ID number.
@@ -36,6 +37,7 @@ public class Patient implements Writable {
     }
 
     // converts patient to JSon object
+    // EFFECTS: converts given patient to JSon object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

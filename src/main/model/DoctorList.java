@@ -32,7 +32,7 @@ public class DoctorList {
 
     // get list of doctors
     // EFFECTS: returns list of doctors
-    public List<Doctor> getDoctorList() {
+    public List<Doctor> getDoctors() {
         return this.doctors;
     }
 

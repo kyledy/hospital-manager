@@ -18,15 +18,15 @@ public class InquiryListTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, il.getInquiryList().size());
+        assertEquals(0, il.getInquiries().size());
     }
 
     @Test
     void testInitInquiries() {
         il.initInquiries();
-        assertEquals(NUM_OF_INQUIRIES, il.getInquiryList().size());
-        assertEquals(I1, il.getInquiryList().get(0));
-        assertEquals(I2, il.getInquiryList().get(1));
-        assertEquals(I3, il.getInquiryList().get(2));
+        assertEquals(NUM_OF_INQUIRIES, il.getInquiries().size());
+        assertEquals(I1, il.getInquiries().get(0));
+        assertEquals(I2, il.getInquiries().get(1));
+        assertEquals(I3, il.getInquiries().get(2));
     }
 }

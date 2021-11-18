@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // This class represents a list of Appointments.
+// This class references code from the JSonSerializationDemo project.
 public class AppointmentList implements Writable {
     private ArrayList<Appointment> appointments;
 
@@ -19,7 +20,7 @@ public class AppointmentList implements Writable {
 
     // get list of appointments
     // EFFECTS: returns list of appointments
-    public List<Appointment> getAppointmentList() {
+    public List<Appointment> getAppointments() {
         return this.appointments;
     }
 
@@ -36,6 +37,7 @@ public class AppointmentList implements Writable {
     }
 
     // parses the list and converts each appointment to Json
+    // EFFECTS: converts each appointment in given list of appointments to JSon object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -43,7 +45,7 @@ public class AppointmentList implements Writable {
         return json;
     }
 
-    // EFFECTS: returns medical records in this medical record list as a JSON array
+    // EFFECTS: returns appointments in this appointment list as a JSONArray
     private JSONArray appointmentsToJson() {
         JSONArray jsonArray = new JSONArray();
 

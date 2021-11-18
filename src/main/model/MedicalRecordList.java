@@ -19,8 +19,8 @@ public class MedicalRecordList implements Writable {
     }
 
     // get list of medical records
-    // EFFECTS: returns a list of medical records
-    public List<MedicalRecord> getMedicalRecordList() {
+    // EFFECTS: returns list of medical records
+    public List<MedicalRecord> getMedicalRecords() {
         return this.medicalRecords;
     }
 
@@ -37,6 +37,7 @@ public class MedicalRecordList implements Writable {
     }
 
     // parses the list and converts each medical record to Json
+    // EFFECTS: for each medical record in the list, converts it to JSonObject and returns it
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

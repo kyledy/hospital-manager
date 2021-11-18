@@ -8,7 +8,7 @@ public class Inquiry {
     private String date;
     private String remarks;
 
-    // At this time, the inquiries shown through the program are just dummy variables.
+    // The inquiries that are shown by the program are dummy variables.
     public static final Inquiry I1 = new Inquiry("cannot book appointment", "September 16, 2021",
             "N/a");
     public static final Inquiry I2 = new Inquiry("emergency appointment", "November 19, 2021",

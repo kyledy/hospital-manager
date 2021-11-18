@@ -17,13 +17,13 @@ public class MedicalRecordListTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, ml.getMedicalRecordList().size());
+        assertEquals(0, ml.getMedicalRecords().size());
     }
 
     @Test
     void testAddMedicalRecord() {
         ml.addMedicalRecord(m);
-        assertEquals(1, ml.getMedicalRecordList().size());
+        assertEquals(1, ml.getMedicalRecords().size());
     }
 
     @Test

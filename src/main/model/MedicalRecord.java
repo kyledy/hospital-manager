@@ -66,6 +66,7 @@ public class MedicalRecord implements Writable {
     }
 
     // converts medical record to JSon object
+    // EFFECTS: converts given medical record to JSon object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

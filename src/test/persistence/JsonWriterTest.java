@@ -88,7 +88,7 @@ public class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralMedicalRecordList.json");
             ml = reader.readMedicalRecordList();
-            List<MedicalRecord> records = ml.getMedicalRecordList();
+            List<MedicalRecord> records = ml.getMedicalRecords();
             assertEquals(2, ml.length());
             checkMedicalRecord("kyle", 10, 10, 10, "O", records.get(0));
             checkMedicalRecord("andie", 11, 11, 11, "A", records.get(1));
@@ -111,7 +111,7 @@ public class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralPatientList.json");
             pl = reader.readPatientList();
-            List<Patient> patients = pl.getPatientList();
+            List<Patient> patients = pl.getPatients();
             assertEquals(2, pl.length());
             checkPatient("Kyle", 1234, patients.get(0));
             checkPatient("Andie", 2345, patients.get(1));
@@ -134,7 +134,7 @@ public class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralAppointmentList.json");
             al = reader.readAppointmentList();
-            List<Appointment> appointments = al.getAppointmentList();
+            List<Appointment> appointments = al.getAppointments();
             assertEquals(2, al.length());
             checkAppointment("Kyle", "9:30 pm", appointments.get(0));
             checkAppointment("Andie", "4:00 am", appointments.get(1));

@@ -17,12 +17,12 @@ public class PatientListTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, pl.getPatientList().size());
+        assertEquals(0, pl.getPatients().size());
     }
 
     @Test
     void testAddPatient() {
         pl.addPatient(p);
-        assertEquals(1, pl.getPatientList().size());
+        assertEquals(1, pl.getPatients().size());
     }
 }
