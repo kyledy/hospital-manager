@@ -18,6 +18,10 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
     JButton makeMedicalRecordButton = new JButton("Make new medical record");
     JButton showMedicalRecordsButton = new JButton("Show all medical records");
 
+    // These two components set the background color
+    JPanel backgroundPanel = new JPanel();
+    Color customColor = new Color(177, 156, 217);
+
     // constructor
     // EFFECTS: constructs a window containing GUI elements for the medical record creator
     public MedicalRecordMenu() {
@@ -33,18 +37,21 @@ public class MedicalRecordMenu extends JFrame implements ActionListener {
         addActionEvents();
     }
 
-    // MODIFIES: makeMedicalRecordButton, showMedicalRecordsButton
-    // EFFECTS: sets the coordinates and dimensions of the buttons on the screen
+    // MODIFIES: makeMedicalRecordButton, showMedicalRecordsButton, background Panel
+    // EFFECTS: sets the coordinates and dimensions of the buttons on the screen, and background panel
     public void setPositionAndSize() {
         makeMedicalRecordButton.setBounds(115, 150, 300, 150);
         showMedicalRecordsButton.setBounds(115, 350, 300, 150);
+        backgroundPanel.setBounds(0,0,650,750);
     }
 
-    // MODIFIES: medicalRecordMenu
-    // EFFECTS: adds selected GUI components to container
+    // MODIFIES: medicalRecordMenu, backgroundPanel
+    // EFFECTS: adds selected GUI components to container, and sets color of background panel
     public void addComponents() {
         medicalRecordMenu.add(makeMedicalRecordButton);
         medicalRecordMenu.add(showMedicalRecordsButton);
+        medicalRecordMenu.add(backgroundPanel);
+        backgroundPanel.setBackground(customColor);
     }
 
     // MODIFIES: makeMedicalRecordButton, showMedicalRecordsButton

@@ -20,6 +20,10 @@ public class PatientMenu extends JFrame implements ActionListener {
     JButton checkOutButton = new JButton("Check Out Patient");
     JButton showPatientsButton = new JButton("Show all Patients");
 
+    // These two components set the background color
+    JPanel backgroundPanel = new JPanel();
+    Color customColor = new Color(251, 204, 209);
+
     // constructor
     // EFFECTS: constructs a window containing the GUI elements for the patient check-in
     public PatientMenu() {
@@ -36,20 +40,23 @@ public class PatientMenu extends JFrame implements ActionListener {
         addActionEvents();
     }
 
-    // MODIFIES: checkInButton, checkOutButton, showPatientsButton
-    // EFFECTS: sets the coordinates and dimensions of the buttons on the screen
+    // MODIFIES: checkInButton, checkOutButton, showPatientsButton, backgroundPanel
+    // EFFECTS: sets the coordinates and dimensions of the buttons on the screen, and background panel
     public void setPositionAndSize() {
         checkInButton.setBounds(115, 50, 300, 150);
         checkOutButton.setBounds(115, 250, 300, 150);
         showPatientsButton.setBounds(115, 450, 300, 150);
+        backgroundPanel.setBounds(0,0,650,750);
     }
 
-    // MODIFIES: patientMenu
-    // EFFECTS: adds components to container
+    // MODIFIES: patientMenu, backgroundPanel
+    // EFFECTS: adds components to container, and sets color of backgroundPanel
     public void addComponents() {
         patientMenu.add(checkInButton);
         patientMenu.add(checkOutButton);
         patientMenu.add(showPatientsButton);
+        patientMenu.add(backgroundPanel);
+        backgroundPanel.setBackground(customColor);
     }
 
     // MODIFIES: checkInButton, checkOutButton, showPatientsButton

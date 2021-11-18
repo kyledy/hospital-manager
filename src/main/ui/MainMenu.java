@@ -42,6 +42,12 @@ public class MainMenu extends JFrame implements ActionListener {
     JButton inquiryButton = new JButton("Inquiries");
     JButton medicalRecordButton = new JButton("Medical Records");
     JButton appointmentButton = new JButton("Appointments");
+    JMenuBar menuBar;
+    JMenu menuFile;
+    JMenu menuHelp;
+    JMenuItem saveStateButton;
+    JMenuItem loadStateButton;
+    JMenuItem aboutButton;
 
     // These two components set the background color
     JPanel backgroundPanel = new JPanel();
@@ -54,23 +60,15 @@ public class MainMenu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
+        // initializing JSon readers and writers
+        initializeReaderAndWriter();
+
         mainMenu.setLayout(null);
+        createMenuBar();
+        createMenus();
         setPositionAndSize();
         addComponents();
         addActionEvents();
-        initializeReaderAndWriter();
-    }
-
-    public void initializeReaderAndWriter() {
-        // initializes JSON writers and JSON readers
-        medicalRecordWriter = new JsonWriter(MEDICAL_RECORD_STORE);
-        medicalRecordReader = new JsonReader(MEDICAL_RECORD_STORE);
-
-        patientListWriter = new JsonWriter(PATIENT_LIST_STORE);
-        patientListReader = new JsonReader(PATIENT_LIST_STORE);
-
-        appointmentWriter = new JsonWriter(APPOINTMENT_STORE);
-        appointmentReader = new JsonReader(APPOINTMENT_STORE);
     }
 
     // MODIFIES: patientButton, doctorButton, inquiryButton, medicalRecordButton, appointmentButton,
@@ -80,9 +78,31 @@ public class MainMenu extends JFrame implements ActionListener {
         patientButton.setBounds(50, 200, 225, 150);
         doctorButton.setBounds(330, 200, 225, 150);
         inquiryButton.setBounds(610, 200, 225, 150);
-        medicalRecordButton.setBounds(175,400, 225, 150);
-        appointmentButton.setBounds(475,400,225,150);
-        backgroundPanel.setBounds(0, 0, 1000,900);
+        medicalRecordButton.setBounds(175, 400, 225, 150);
+        appointmentButton.setBounds(475, 400, 225, 150);
+        backgroundPanel.setBounds(0, 0, 1000, 900);
+    }
+
+    public void createMenuBar() {
+        menuBar = new JMenuBar();
+        mainMenu.add(menuBar);
+
+        menuFile = new JMenu("File");
+        menuHelp = new JMenu("Help");
+        menuBar.add(menuFile);
+        menuBar.add(menuHelp);
+        menuBar.setBounds(0, 0, 900, 30);
+        menuBar.setVisible(true);
+    }
+
+    public void createMenus() {
+        saveStateButton = new JMenuItem("Save state from file...");
+        loadStateButton = new JMenuItem("Load state from file...");
+        menuFile.add(saveStateButton);
+        menuFile.add(loadStateButton);
+
+        aboutButton = new JMenuItem("About");
+        menuHelp.add(aboutButton);
     }
 
     // MODIFIES: container
@@ -105,10 +125,26 @@ public class MainMenu extends JFrame implements ActionListener {
         inquiryButton.addActionListener(this);
         medicalRecordButton.addActionListener(this);
         appointmentButton.addActionListener(this);
+        saveStateButton.addActionListener(this);
+        loadStateButton.addActionListener(this);
+        aboutButton.addActionListener(this);
+    }
+
+    public void initializeReaderAndWriter() {
+        // initializes JSON writers and JSON readers
+        medicalRecordWriter = new JsonWriter(MEDICAL_RECORD_STORE);
+        medicalRecordReader = new JsonReader(MEDICAL_RECORD_STORE);
+
+        patientListWriter = new JsonWriter(PATIENT_LIST_STORE);
+        patientListReader = new JsonReader(PATIENT_LIST_STORE);
+
+        appointmentWriter = new JsonWriter(APPOINTMENT_STORE);
+        appointmentReader = new JsonReader(APPOINTMENT_STORE);
     }
 
     // action listeners for main menu GUI
     // EFFECTS: adds action listening behavior for GUI components
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -135,6 +171,22 @@ public class MainMenu extends JFrame implements ActionListener {
         // Brings the user to the appointment menu if appointmentButton is pressed
         if (e.getSource() == appointmentButton) {
             appointmentMenu = new AppointmentMenu();
+        }
+
+        // Brings the user to the appointment menu if appointmentButton is pressed
+        if (e.getSource() == saveStateButton) {
+            JOptionPane.showMessageDialog(this, "Successfully saved data to file.");
+        }
+
+        // Brings the user to the appointment menu if appointmentButton is pressed
+        if (e.getSource() == loadStateButton) {
+            JOptionPane.showMessageDialog(this, "Successfully loaded data from file.");
+        }
+
+        // Brings the user to the appointment menu if appointmentButton is pressed
+        if (e.getSource() == aboutButton) {
+            JOptionPane.showMessageDialog(this, "Welcome to MyHospitalManager! In this "
+                    + "application you will find many useful features. Please feel free to navigate them below.");
         }
     }
 

@@ -20,6 +20,10 @@ public class AppointmentMenu extends JFrame implements ActionListener {
     JButton removeAppointmentButton = new JButton("Remove an appointment");
     JButton showAppointmentsButton = new JButton("Show all appointments");
 
+    // These two components set the background color
+    JPanel backgroundPanel = new JPanel();
+    Color customColor = new Color(250, 200, 152);
+
     // constructor
     // EFFECTS: constructs a window containing the GUI elements for the appointment booker
     public AppointmentMenu() {
@@ -36,20 +40,23 @@ public class AppointmentMenu extends JFrame implements ActionListener {
         addActionEvents();
     }
 
-    // MODIFIES: makeAppointmentButton, removeAppointmentButton, showAppointmentButton
-    // EFFECTS: sets the coordinates and dimensions of the buttons on the screen
+    // MODIFIES: makeAppointmentButton, removeAppointmentButton, showAppointmentButton, backgroundPanel
+    // EFFECTS: sets the coordinates and dimensions of the buttons on the screen, and backgroundPanel
     public void setPositionAndSize() {
         makeAppointmentButton.setBounds(115, 50, 300, 150);
         removeAppointmentButton.setBounds(115, 250, 300, 150);
         showAppointmentsButton.setBounds(115, 450, 300, 150);
+        backgroundPanel.setBounds(0,0,650,750);
     }
 
-    // MODIFIES: appointmentMenu
-    // EFFECTS: adds GUI components to container
+    // MODIFIES: appointmentMenu, backgroundPanel
+    // EFFECTS: adds GUI components to container, and sets color of backgroundPanel
     public void addComponents() {
         appointmentMenu.add(makeAppointmentButton);
         appointmentMenu.add(removeAppointmentButton);
         appointmentMenu.add(showAppointmentsButton);
+        appointmentMenu.add(backgroundPanel);
+        backgroundPanel.setBackground(customColor);
     }
 
     // MODIFIES: makeAppointmentButton, removeAppointmentButton, showAppointmentButton
