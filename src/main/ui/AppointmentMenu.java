@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 // This class represents the UI of the appointment booking feature of the program.
 public class AppointmentMenu extends JFrame implements ActionListener {
 
-    // initializing an empty list of appointments to be manipulated by the program
+    // initializing list of appointments to be used by the program
     protected AppointmentList al = new AppointmentList();
 
     // GUI components for the appointments menu
@@ -67,6 +67,21 @@ public class AppointmentMenu extends JFrame implements ActionListener {
         showAppointmentsButton.addActionListener(this);
     }
 
+    // getter method for the appointment list of the class. used by the AppointmentTable class.
+    public AppointmentList getAppointmentList() {
+        return al;
+    }
+
+    // TODO: finish this
+    public void saveAppointmentsToJson() {
+
+    }
+
+    // TODO: finish this
+    public void loadAppointmentsFromJson() {
+
+    }
+
     // EFFECTS: specifies action behavior for each listed action event
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -85,12 +100,13 @@ public class AppointmentMenu extends JFrame implements ActionListener {
         }
 
         // remove an appointment
+        // REQUIRES: there are no duplicate names in list
         // MODIFIES: al
         // EFFECTS: prompts the user to input the name of the patient whose appointment they would like removed. If
         // name matches name of one found in the list, the appointment is removed; otherwise does nothing
         if (e.getSource() == removeAppointmentButton) {
             String appointmentToRemove = JOptionPane.showInputDialog("Please enter the name of the patient whose"
-                    + "appointment you would like to remove.");
+                    + " appointment you would like to remove.");
 
             for (Appointment appointment : al.getAppointments()) {
                 if (appointment.getName().equals(appointmentToRemove)) {
@@ -104,7 +120,7 @@ public class AppointmentMenu extends JFrame implements ActionListener {
         // show all appointments
         // EFFECTS: displays all appointments stored in the program
         if (e.getSource() == showAppointmentsButton) {
-            // nothing for now
+            new AppointmentTable(this);
         }
     }
 }

@@ -17,11 +17,11 @@ and pursue my interests further.
 
 ## User Stories
 - As a user, I want to be able to log in using a system-wide username and password.
-- As a user, I wish to be able to book an appointment for a given Patient.
+- As a user, I wish to be able to book an appointment for a given patient.
 - As a user, I wish to be able to generate a list of inquiries made to the Help Desk.
 - As a user, I wish to be able to generate a list of all doctors currently employed at the Hospital.
 - As a user, I wish to be able to check patients in and out of the system.
 - As a user, I wish to be able to input medical records into the system.
-- As a user, I wish to be given the option to load a previous state of my program, with specifications shown below.
-- As a user, I wish to be able to save the current state of the program to file (more specifically
-  currently checked-in patients,  medical records, and booked appointments).
+- As a user, I wish to be able to save the current state of the program to file (more specifically 
+currently checked-in patients,  medical records, and booked appointments).
+- As a user, I wish to be given the option to load the previous state of my program.

@@ -1,5 +1,6 @@
 package ui;
 
+import model.AppointmentList;
 import model.Patient;
 import model.PatientList;
 
@@ -40,6 +41,11 @@ public class PatientMenu extends JFrame implements ActionListener {
         addActionEvents();
     }
 
+    // getter method for the appointment list of the class. used by the AppointmentTable class.
+    public PatientList getPatientList() {
+        return pl;
+    }
+
     // MODIFIES: checkInButton, checkOutButton, showPatientsButton, backgroundPanel
     // EFFECTS: sets the coordinates and dimensions of the buttons on the screen, and background panel
     public void setPositionAndSize() {
@@ -65,6 +71,16 @@ public class PatientMenu extends JFrame implements ActionListener {
         checkInButton.addActionListener(this);
         checkOutButton.addActionListener(this);
         showPatientsButton.addActionListener(this);
+    }
+
+    // TODO: finish this
+    public void savePatientsToJson() {
+
+    }
+
+    // TODO: finish this
+    public void loadPatientsFromJson() {
+
     }
 
     // EFFECTS: specifies action listening behavior for selected GUI components
@@ -102,7 +118,7 @@ public class PatientMenu extends JFrame implements ActionListener {
 
         // EFFECTS: shows all patients currently stored in the program
         if (e.getSource() == showPatientsButton) {
-            // nothing for now
+            new PatientTable(this);
         }
     }
 }
