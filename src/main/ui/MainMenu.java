@@ -101,7 +101,7 @@ public class MainMenu extends JFrame implements ActionListener {
     // MODIFIES: el
     // EFFECTS: prints the event log to the console
     public void printLog() {
-        System.out.println("EVENT LOG:");
+        System.out.println("Event Log:");
         el = EventLog.getInstance();
         for (Event e : el) {
             System.out.println(e.toString());

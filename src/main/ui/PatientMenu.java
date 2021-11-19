@@ -2,6 +2,7 @@ package ui;
 
 import model.Patient;
 import model.PatientList;
+import model.exceptions.EmptyListException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -99,8 +100,12 @@ public class PatientMenu extends JFrame implements ActionListener {
             String patientToRemove = JOptionPane.showInputDialog("Please enter the name of the patient you"
                     + " would like to check out.");
 
-            pl.removePatient(patientToRemove);
-            JOptionPane.showMessageDialog(this, "Successful");
+            try {
+                pl.removePatient(patientToRemove);
+                JOptionPane.showMessageDialog(this, "Successful");
+            } catch (EmptyListException ex) {
+                ex.printStackTrace();
+            }
         }
 
         // EFFECTS: shows all patients currently stored in the program

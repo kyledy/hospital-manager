@@ -1,5 +1,6 @@
 package model;
 
+import model.exceptions.EmptyListException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
@@ -35,7 +36,7 @@ public class AppointmentList implements Writable {
     // remove appointment from list of appointments
     // REQUIRES: no duplicate names in appointments
     // EFFECTS: removes appointment from list of appointments, and logs the event
-    public void removeAppointment(String appointmentToRemove) {
+    public void removeAppointment(String appointmentToRemove) throws EmptyListException {
 
         if (appointments.size() != 0) {
             for (Appointment appointment : appointments) {
@@ -47,7 +48,7 @@ public class AppointmentList implements Writable {
             EventLog.getInstance().logEvent(new Event("Appointment has been removed from list of "
                     + "appointments."));
         } else {
-            throw new NullPointerException();
+            throw new EmptyListException("The list is empty!");
         }
     }
 

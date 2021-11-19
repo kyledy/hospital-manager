@@ -1,5 +1,6 @@
 package model;
 
+import model.exceptions.EmptyListException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,12 +29,12 @@ public class AppointmentListTest {
     }
 
     @Test
-    void testRemoveAppointment() {
+    void testRemoveAppointment() throws EmptyListException {
 
         try {
             al.removeAppointment(a.getName());
             fail("Exception should have been thrown");
-        } catch (NullPointerException e) {
+        } catch (EmptyListException e) {
             // nothing
         }
 

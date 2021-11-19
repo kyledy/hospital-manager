@@ -2,6 +2,7 @@ package ui;
 
 import model.Appointment;
 import model.AppointmentList;
+import model.exceptions.EmptyListException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -102,8 +103,12 @@ public class AppointmentMenu extends JFrame implements ActionListener {
             String appointmentToRemove = JOptionPane.showInputDialog("Please enter the name of the patient whose"
                     + " appointment you would like to remove.");
 
-            al.removeAppointment(appointmentToRemove);
-            JOptionPane.showMessageDialog(this, "Successful!");
+            try {
+                al.removeAppointment(appointmentToRemove);
+                JOptionPane.showMessageDialog(this, "Successful!");
+            } catch (EmptyListException ex) {
+                ex.printStackTrace();
+            }
         }
 
         // show all appointments
