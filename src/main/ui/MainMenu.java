@@ -99,9 +99,10 @@ public class MainMenu extends JFrame implements ActionListener {
     // MODIFIES: el
     // EFFECTS: prints the event log to the console, then clears it.
     public void printLog() {
+        System.out.println("EVENT LOG:");
         el = EventLog.getInstance();
         for (Event e : el) {
-            System.out.println(e.getDate() + ":" + TAB + e.getDescription());
+            System.out.println(e.toString());
         }
         el.clear();
         System.out.println("Event log has been cleared.");

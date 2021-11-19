@@ -1,4 +1,4 @@
-# Term Project for CPSC 210: MyHospitalManager
+# My Project: MyHospitalManager
 
 ### What does the application do?
 
@@ -17,7 +17,7 @@ and pursue my interests further.
 
 ## User Stories
 - As a user, I want to be able to log in using a system-wide username and password.
-- As a user, I wish to be able to book an appointment for a given patient.
+- As a user, I wish to be able to book appointments in and out of the system.
 - As a user, I wish to be able to generate a list of inquiries made to the Help Desk.
 - As a user, I wish to be able to generate a list of all doctors currently employed at the Hospital.
 - As a user, I wish to be able to check patients in and out of the system.
@@ -27,27 +27,49 @@ currently checked-in patients,  medical records, and booked appointments).
 - As a user, I wish to be given the option to load the previous state of my program.
 
 ##Phase 4: Task 2
-- Thu Nov 18 17:12:17 PST 2021: Patient has been added to list of patients.
-- Thu Nov 18 17:12:21 PST 2021: Patient has been added to list of patients.
-- Thu Nov 18 17:12:24 PST 2021: Patient has been removed to list of patients.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
-- Thu Nov 18 17:12:27 PST 2021: List of doctors has been initialized with final variables.
-- Thu Nov 18 17:12:30 PST 2021: Inquiry has been added to list of inquiries.
-- Thu Nov 18 17:12:30 PST 2021: Inquiry has been added to list of inquiries.
-- Thu Nov 18 17:12:30 PST 2021: Inquiry has been added to list of inquiries.
-- Thu Nov 18 17:12:30 PST 2021: List of inquiries has been initialized.
-- Thu Nov 18 17:12:37 PST 2021: Medical record has been added to list of medical records.
-- Thu Nov 18 17:12:46 PST 2021: Appointment added to list of appointments.
-- Thu Nov 18 17:12:49 PST 2021: Appointment removed from list of appointments.
+- EVENT LOG:
+- Thu Nov 18 21:04:36 PST 2021
+Patient has been added to list of patients.
+- Thu Nov 18 21:04:38 PST 2021
+Patient has been added to list of patients.
+- Thu Nov 18 21:04:41 PST 2021
+Patient has been removed from list of patients.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+Doctor has been added to list of doctors.
+- Thu Nov 18 21:04:45 PST 2021
+List of doctors has been initialized with final variables.
+- Thu Nov 18 21:04:46 PST 2021
+Inquiry has been added to list of inquiries.
+- Thu Nov 18 21:04:46 PST 2021
+Inquiry has been added to list of inquiries.
+- Thu Nov 18 21:04:46 PST 2021
+Inquiry has been added to list of inquiries.
+- Thu Nov 18 21:04:46 PST 2021
+List of inquiries has been initialized.
+- Thu Nov 18 21:04:53 PST 2021
+Medical record has been added to list of medical records.
+- Thu Nov 18 21:04:59 PST 2021
+Appointment added to list of appointments.
+- Thu Nov 18 21:05:02 PST 2021
+Appointment has been removed from list of appointments.
 - Event log has been cleared.
+
 
 ##Phase 4: Task 3
 
