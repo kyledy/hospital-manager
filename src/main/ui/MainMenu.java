@@ -149,7 +149,7 @@ public class MainMenu extends JFrame implements ActionListener {
     // MODIFIES: saveStateButton, loadStateButton, menuFile, aboutButton, menuHelp
     // EFFECTS: initializes menu items on menu bar
     public void createMenus() {
-        saveStateButton = new JMenuItem("Save state from file...");
+        saveStateButton = new JMenuItem("Save state to file...");
         loadStateButton = new JMenuItem("Load state from file...");
         menuFile.add(saveStateButton);
         menuFile.add(loadStateButton);
