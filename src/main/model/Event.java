@@ -64,6 +64,6 @@ public class Event {
 
     @Override
     public String toString() {
-        return dateLogged.toString() + "\n" + description;
+        return this.getDate().toString() + "\n" + this.getDescription();
     }
 }

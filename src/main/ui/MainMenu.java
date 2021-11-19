@@ -83,6 +83,8 @@ public class MainMenu extends JFrame implements ActionListener {
             @Override
             public void windowClosing(WindowEvent e) {
                 printLog();
+                el.clear();
+                System.out.println("Event log has been cleared.");
                 System.exit(0);
             }
         });
@@ -104,8 +106,6 @@ public class MainMenu extends JFrame implements ActionListener {
         for (Event e : el) {
             System.out.println(e.toString());
         }
-        el.clear();
-        System.out.println("Event log has been cleared.");
     }
 
     // EFFECTS: initializes the JSon readers and writers
