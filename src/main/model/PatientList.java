@@ -9,6 +9,7 @@ import java.util.List;
 
 // This class represents a list of patients.
 // This class references code from the JSonSerializationDemo project.
+// This code references the AlarmSystem code given by the course.
 public class PatientList implements Writable {
     private ArrayList<Patient> patients;
 
@@ -25,9 +26,25 @@ public class PatientList implements Writable {
     }
 
     // add patient to list of patients
-    // EFFECTS: adds patient p to list of patients
+    // EFFECTS: adds patient p to list of patients, and logs the event
     public void addPatient(Patient p) {
         patients.add(p);
+        EventLog.getInstance().logEvent(new Event("Patient has been added to list of patients."));
+    }
+
+    // remove patient from list of patients
+    // REQUIRES: no duplicate names in list of patients
+    // MODIFIES: pl
+    // EFFECTS: removes patient p from list of patients, and logs the event
+    public void removePatient(String patientToRemove) {
+        for (Patient patient : patients) {
+            if (patient.getName().equals(patientToRemove)) {
+                patients.remove(patient);
+                break;
+            }
+        }
+
+        EventLog.getInstance().logEvent(new Event("Patient has been removed from list of patients."));
     }
 
     // get length of list

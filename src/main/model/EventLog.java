@@ -5,11 +5,12 @@ import java.util.Collection;
 import java.util.Iterator;
 
 /**
- * Represents a log of alarm system events.
+ * Represents a log of hospital management system events.
  * We use the Singleton Design Pattern to ensure that there is only
  * one EventLog in the system and that the system has global access
  * to the single instance of the EventLog.
  */
+// This code references the AlarmSystem code given by the course.
 public class EventLog implements Iterable<Event> {
     /**
      * the only EventLog in the system (Singleton Design Pattern)
@@ -21,8 +22,8 @@ public class EventLog implements Iterable<Event> {
      * Prevent external construction.
      * (Singleton Design Pattern).
      */
-    private EventLog() {
-        events = new ArrayList<Event>();
+    public EventLog() {
+        events = new ArrayList<>();
     }
 
     /**
@@ -33,8 +34,9 @@ public class EventLog implements Iterable<Event> {
      * @return instance of EventLog
      */
     public static EventLog getInstance() {
-        if (theLog == null)
+        if (theLog == null) {
             theLog = new EventLog();
+        }
 
         return theLog;
     }

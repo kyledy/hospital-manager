@@ -91,6 +91,7 @@ public class PatientMenu extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "Successful");
         }
 
+        // REQUIRES: there are no duplicate names in list
         // MODIFIES: pl
         // EFFECTS: prompts the user to enter the name of the patient they would like to check out. If the name matches
         // the name of a patient in the list, the patient is removed from the list. Otherwise, does nothing
@@ -98,13 +99,8 @@ public class PatientMenu extends JFrame implements ActionListener {
             String patientToRemove = JOptionPane.showInputDialog("Please enter the name of the patient you"
                     + " would like to check out.");
 
-            for (Patient patient : pl.getPatients()) {
-                if (patient.getName().equals(patientToRemove)) {
-                    pl.getPatients().remove(patient);
-                    JOptionPane.showMessageDialog(this, "Successful");
-                    break;
-                }
-            }
+            pl.removePatient(patientToRemove);
+            JOptionPane.showMessageDialog(this, "Successful");
         }
 
         // EFFECTS: shows all patients currently stored in the program

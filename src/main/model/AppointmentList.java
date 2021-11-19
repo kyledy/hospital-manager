@@ -9,6 +9,7 @@ import java.util.List;
 
 // This class represents a list of Appointments.
 // This class references code from the JSonSerializationDemo project.
+// This code references the AlarmSystem code given by the course.
 public class AppointmentList implements Writable {
     private ArrayList<Appointment> appointments;
 
@@ -25,9 +26,24 @@ public class AppointmentList implements Writable {
     }
 
     // add appointment to list of appointments
-    // EFFECTS: adds appointment to list of appointments
+    // EFFECTS: adds appointment to list of appointments, and logs the event
     public void addAppointment(Appointment a) {
         appointments.add(a);
+        EventLog.getInstance().logEvent(new Event("Appointment added to list of appointments."));
+    }
+
+    // remove appointment from list of appointments
+    // EFFECTS: removes appointment from list of appointments, and logs the event
+    public void removeAppointment(String appointmentToRemove) {
+
+        for (Appointment appointment : appointments) {
+            if (appointment.getName().equals(appointmentToRemove)) {
+                appointments.remove(appointment);
+                break;
+            }
+        }
+
+        EventLog.getInstance().logEvent(new Event("Appointment has been removed from list of appointments."));
     }
 
     // get length of list

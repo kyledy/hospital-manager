@@ -1,8 +1,7 @@
 package ui;
 
-import model.AppointmentList;
-import model.MedicalRecordList;
-import model.PatientList;
+import model.Event;
+import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -10,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -18,6 +19,10 @@ import java.io.IOException;
 // An older state of this application referenced the AccountNotRobust project, but this has since been omitted for
 // Phase 3
 public class MainMenu extends JFrame implements ActionListener {
+
+    // initializing the event log of the program
+    private EventLog el;
+    private static final String TAB = " ";
 
     // Declaration of menu variables
     protected PatientMenu patientMenu;
@@ -73,6 +78,15 @@ public class MainMenu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
+        // Instructs the program to print the event log to console when the window closes.
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printLog();
+                System.exit(0);
+            }
+        });
+
         mainMenu.setLayout(null);
         createMenuBar();
         createMenus();
@@ -80,6 +94,17 @@ public class MainMenu extends JFrame implements ActionListener {
         addComponents();
         addActionEvents();
         initializeReaderAndWriter();
+    }
+
+    // MODIFIES: el
+    // EFFECTS: prints the event log to the console, then clears it.
+    public void printLog() {
+        el = EventLog.getInstance();
+        for (Event e : el) {
+            System.out.println(e.getDate() + ":" + TAB + e.getDescription());
+        }
+        el.clear();
+        System.out.println("Event log has been cleared.");
     }
 
     // EFFECTS: initializes the JSon readers and writers

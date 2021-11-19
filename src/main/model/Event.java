@@ -5,8 +5,9 @@ import java.util.Date;
 
 
 /**
- * Represents an alarm system event.
+ * Represents a hospital management system event.
  */
+// This code references the AlarmSystem code given by the course.
 public class Event {
     private static final int HASH_CONSTANT = 13;
     private Date dateLogged;
@@ -43,16 +44,18 @@ public class Event {
 
     @Override
     public boolean equals(Object other) {
-        if (other == null)
+        if (other == null) {
             return false;
+        }
 
-        if (other.getClass() != this.getClass())
+        if (other.getClass() != this.getClass()) {
             return false;
+        }
 
         Event otherEvent = (Event) other;
 
-        return (this.dateLogged.equals(otherEvent.dateLogged) &&
-                this.description.equals(otherEvent.description));
+        return (this.dateLogged.equals(otherEvent.dateLogged)
+                && this.description.equals(otherEvent.description));
     }
 
     @Override

@@ -27,7 +27,27 @@ currently checked-in patients,  medical records, and booked appointments).
 - As a user, I wish to be given the option to load the previous state of my program.
 
 ##Phase 4: Task 2
-nothing yet
+- Thu Nov 18 17:12:17 PST 2021: Patient has been added to list of patients.
+- Thu Nov 18 17:12:21 PST 2021: Patient has been added to list of patients.
+- Thu Nov 18 17:12:24 PST 2021: Patient has been removed to list of patients.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: Doctor has been added to list of doctors.
+- Thu Nov 18 17:12:27 PST 2021: List of doctors has been initialized with final variables.
+- Thu Nov 18 17:12:30 PST 2021: Inquiry has been added to list of inquiries.
+- Thu Nov 18 17:12:30 PST 2021: Inquiry has been added to list of inquiries.
+- Thu Nov 18 17:12:30 PST 2021: Inquiry has been added to list of inquiries.
+- Thu Nov 18 17:12:30 PST 2021: List of inquiries has been initialized.
+- Thu Nov 18 17:12:37 PST 2021: Medical record has been added to list of medical records.
+- Thu Nov 18 17:12:46 PST 2021: Appointment added to list of appointments.
+- Thu Nov 18 17:12:49 PST 2021: Appointment removed from list of appointments.
+- Event log has been cleared.
 
 ##Phase 4: Task 3
 

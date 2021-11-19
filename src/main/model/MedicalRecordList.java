@@ -9,6 +9,7 @@ import java.util.List;
 
 // This class represents a list of medical records.
 // This class references code from the JSonSerializationDemo project.
+// This code references the AlarmSystem code given by the course.
 public class MedicalRecordList implements Writable {
     private ArrayList<MedicalRecord> medicalRecords;
 
@@ -25,9 +26,11 @@ public class MedicalRecordList implements Writable {
     }
 
     // add medical record to list of medical records
-    // EFFECTS: adds medical record m to list of medical records
+    // EFFECTS: adds medical record m to list of medical records, and logs the event
     public void addMedicalRecord(MedicalRecord m) {
         medicalRecords.add(m);
+        EventLog.getInstance().logEvent(new Event("Medical record has been added to list of medical "
+                + "records."));
     }
 
     // get length of list

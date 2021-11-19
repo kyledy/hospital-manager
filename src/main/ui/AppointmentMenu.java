@@ -102,13 +102,8 @@ public class AppointmentMenu extends JFrame implements ActionListener {
             String appointmentToRemove = JOptionPane.showInputDialog("Please enter the name of the patient whose"
                     + " appointment you would like to remove.");
 
-            for (Appointment appointment : al.getAppointments()) {
-                if (appointment.getName().equals(appointmentToRemove)) {
-                    al.getAppointments().remove(appointment);
-                    JOptionPane.showMessageDialog(this, "Successful");
-                    break;
-                }
-            }
+            al.removeAppointment(appointmentToRemove);
+            JOptionPane.showMessageDialog(this, "Successful!");
         }
 
         // show all appointments
