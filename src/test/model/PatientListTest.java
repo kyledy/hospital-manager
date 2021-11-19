@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PatientListTest {
     private PatientList pl;
@@ -28,15 +29,16 @@ public class PatientListTest {
 
     @Test
     void testRemovePatient() {
+        assertEquals(0, pl.length());
+        pl.removePatient(p.getName());
+        assertEquals(0, pl.length());
+
         pl.addPatient(p);
         assertEquals(1, pl.length());
 
         pl.removePatient(p.getName());
         assertEquals(0, pl.length());
-
-        assertEquals(0, pl.length());
-        pl.removePatient(p.getName());
-        assertEquals(0, pl.length());
+        assertFalse(pl.getPatients().contains(p));
     }
 
     @Test

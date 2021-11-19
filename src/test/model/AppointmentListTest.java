@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class AppointmentListTest {
     private AppointmentList al;
@@ -29,15 +30,18 @@ public class AppointmentListTest {
 
     @Test
     void testRemoveAppointment() {
+        assertEquals(0, al.length());
+        al.removeAppointment(a.getName());
+        assertEquals(0, al.length());
+
         al.addAppointment(a);
         assertEquals(1, al.length());
 
         al.removeAppointment(a.getName());
         assertEquals(0, al.length());
+        assertFalse(al.getAppointments().contains(a));
 
-        assertEquals(0, al.length());
-        al.removeAppointment(a.getName());
-        assertEquals(0, al.length());
+
     }
 
     @Test
