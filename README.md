@@ -1,7 +1,9 @@
 # My Project: MyHospitalManager
 
+## What is it about?
 The application I am designing is a hospital management application.
 
+## Who is this intended for?
 This application is intended for use by hospital personnel.
 
 I find this project fascinating because I went into Computer Science with the intent of pursuing bioinformatics.
@@ -20,7 +22,7 @@ and pursue my interests further.
 currently checked-in patients,  medical records, and booked appointments).
 - As a user, I wish to be given the option to load the previous state of my program.
 
-##Phase 4: Task 2
+##Sample Event Log
 - EVENT LOG:
 - Thu Nov 18 21:04:36 PST 2021
 Patient has been added to list of patients.
@@ -65,7 +67,7 @@ Appointment has been removed from list of appointments.
 - Event log has been cleared.
 
 
-##Phase 4: Task 3
+##Looking Back
 
 Looking back on my UML diagram, if I had more time to refactor the code, I would refactor my design in the following
 ways: 
