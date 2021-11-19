@@ -1,14 +1,8 @@
 # My Project: MyHospitalManager
 
-### What does the application do?
-
 The application I am designing is a hospital management application.
 
-### Who will use it?
-
 This application is intended for use by hospital personnel.
-
-### Why is this project of interest to me?
 
 I find this project fascinating because I went into Computer Science with the intent of pursuing bioinformatics.
 Ever since I was young, I have been interested in the field of medicine, largely due to the fact that my parents
