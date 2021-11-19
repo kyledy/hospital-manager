@@ -34,6 +34,7 @@ public class PatientListTest {
         pl.removePatient(p.getName());
         assertEquals(0, pl.length());
 
+        assertEquals(0, pl.length());
         pl.removePatient(p.getName());
         assertEquals(0, pl.length());
     }

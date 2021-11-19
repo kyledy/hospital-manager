@@ -78,7 +78,7 @@ public class MainMenu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
-        // Instructs the program to print the event log to console when the window closes.
+        // Instructs the program to print the event log to console, then clears it when the window closes.
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -99,7 +99,7 @@ public class MainMenu extends JFrame implements ActionListener {
     }
 
     // MODIFIES: el
-    // EFFECTS: prints the event log to the console, then clears it.
+    // EFFECTS: prints the event log to the console
     public void printLog() {
         System.out.println("EVENT LOG:");
         el = EventLog.getInstance();

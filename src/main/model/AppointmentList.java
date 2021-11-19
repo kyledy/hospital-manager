@@ -36,14 +36,17 @@ public class AppointmentList implements Writable {
     // EFFECTS: removes appointment from list of appointments, and logs the event
     public void removeAppointment(String appointmentToRemove) {
 
-        for (Appointment appointment : appointments) {
-            if (appointment.getName().equals(appointmentToRemove)) {
-                appointments.remove(appointment);
-                break;
+        if (appointments.size() != 0) {
+            for (Appointment appointment : appointments) {
+                if (appointment.getName().equals(appointmentToRemove)) {
+                    appointments.remove(appointment);
+                    break;
+                }
             }
+            EventLog.getInstance().logEvent(new Event("Appointment has been removed from list of "
+                    + "appointments."));
         }
 
-        EventLog.getInstance().logEvent(new Event("Appointment has been removed from list of appointments."));
     }
 
     // get length of list

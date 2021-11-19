@@ -35,6 +35,7 @@ public class AppointmentListTest {
         al.removeAppointment(a.getName());
         assertEquals(0, al.length());
 
+        assertEquals(0, al.length());
         al.removeAppointment(a.getName());
         assertEquals(0, al.length());
     }

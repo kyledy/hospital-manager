@@ -37,14 +37,16 @@ public class PatientList implements Writable {
     // MODIFIES: pl
     // EFFECTS: removes patient p from list of patients, and logs the event
     public void removePatient(String patientToRemove) {
-        for (Patient patient : patients) {
-            if (patient.getName().equals(patientToRemove)) {
-                patients.remove(patient);
-                break;
-            }
-        }
 
-        EventLog.getInstance().logEvent(new Event("Patient has been removed from list of patients."));
+        if (patients.size() != 0) {
+            for (Patient patient : patients) {
+                if (patient.getName().equals(patientToRemove)) {
+                    patients.remove(patient);
+                    break;
+                }
+            }
+            EventLog.getInstance().logEvent(new Event("Patient has been removed from list of patients."));
+        }
     }
 
     // get length of list
