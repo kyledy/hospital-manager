@@ -33,7 +33,7 @@ public class AppointmentList implements Writable {
     }
 
     // remove appointment from list of appointments
-    // REQUIRES: appointments.size >= 0, no duplicate names in appointments
+    // REQUIRES: no duplicate names in appointments
     // EFFECTS: removes appointment from list of appointments, and logs the event
     public void removeAppointment(String appointmentToRemove) {
 
@@ -46,6 +46,8 @@ public class AppointmentList implements Writable {
             }
             EventLog.getInstance().logEvent(new Event("Appointment has been removed from list of "
                     + "appointments."));
+        } else {
+            throw new NullPointerException();
         }
     }
 

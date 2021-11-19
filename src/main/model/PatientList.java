@@ -33,7 +33,7 @@ public class PatientList implements Writable {
     }
 
     // remove patient from list of patients
-    // REQUIRES: no duplicate names in list of patients, appointments.size >= 0
+    // REQUIRES: no duplicate names in list of patients
     // MODIFIES: pl
     // EFFECTS: removes patient p from list of patients, and logs the event
     public void removePatient(String patientToRemove) {
@@ -46,6 +46,8 @@ public class PatientList implements Writable {
                 }
             }
             EventLog.getInstance().logEvent(new Event("Patient has been removed from list of patients."));
+        } else {
+            throw new NullPointerException();
         }
     }
 

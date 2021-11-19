@@ -3,8 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppointmentListTest {
     private AppointmentList al;
@@ -30,18 +29,21 @@ public class AppointmentListTest {
 
     @Test
     void testRemoveAppointment() {
-        assertEquals(0, al.length());
-        al.removeAppointment(a.getName());
-        assertEquals(0, al.length());
+
+        try {
+            al.removeAppointment(a.getName());
+            fail("Exception should have been thrown");
+        } catch (NullPointerException e) {
+            // nothing
+        }
 
         al.addAppointment(a);
+        assertTrue(al.getAppointments().contains(a));
         assertEquals(1, al.length());
 
         al.removeAppointment(a.getName());
         assertEquals(0, al.length());
         assertFalse(al.getAppointments().contains(a));
-
-
     }
 
     @Test
