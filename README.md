@@ -1,5 +1,9 @@
 # My Project: MyHospitalManager
 
+## How to run the program 
+At the moment, this project is easiest to compile with IntelliJ IDEA. Assuming that you have the editor installed, download the code and open it as a folder. 
+In the top-right, you can modify run configurations. Make sure that you are running "src/main" and you are all set!
+
 ## What is it about?
 The application I am designing is a hospital management application.
 
