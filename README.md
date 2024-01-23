@@ -22,8 +22,7 @@ and pursue my interests further.
 currently checked-in patients,  medical records, and booked appointments).
 - As a user, I wish to be given the option to load the previous state of my program.
 
-##Sample Event Log
-- EVENT LOG:
+## EVENT LOG:
 - Thu Nov 18 21:04:36 PST 2021
 Patient has been added to list of patients.
 - Thu Nov 18 21:04:38 PST 2021
